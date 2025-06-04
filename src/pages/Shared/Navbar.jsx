@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Menu, X } from "lucide-react";
 import { Link, NavLink } from 'react-router';
 import ThemeToggleBTN from './ThemeToggleBTN';
+import { RiArrowDropDownLine } from 'react-icons/ri';
 
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -30,8 +31,8 @@ const Navbar = () => {
 
             {user && (
                 <li className="dropdown dropdown-hover dropdown-bottom">
-                    <div tabIndex={0} role="button" className="m-1">
-                        Parent ⌄
+                    <div tabIndex={0} role="button" className="m-1 flex items-center">
+                        Dashboard <RiArrowDropDownLine size={24}/>
                     </div>
                     <ul
                         tabIndex={0}
