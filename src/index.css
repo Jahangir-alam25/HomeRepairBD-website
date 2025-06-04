@@ -1,0 +1,12 @@
+@import "tailwindcss";
+@plugin "daisyui" {
+  themes: light --default, dark --prefersdark, cupcake, black;
+}
+
+
+
+
+a.active {
+  @apply text-purple-700;
+  @apply underline
+}
