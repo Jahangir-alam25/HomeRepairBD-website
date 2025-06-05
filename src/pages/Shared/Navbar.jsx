@@ -3,13 +3,12 @@ import { Menu, X } from "lucide-react";
 import { Link, NavLink } from 'react-router';
 import ThemeToggleBTN from './ThemeToggleBTN';
 import { RiArrowDropDownLine } from 'react-icons/ri';
+import useAuth from '../../hooks/useAuth';
 
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
-    const user = {
-        displayName: "Rahat",
-        photoURL: "https://i.ibb.co/5hGkrRxV/Stock-Cake-Attorney-at-work-1745386096.jpg"
-    }
+
+    const { user } = useAuth();
 
 
     const links = (

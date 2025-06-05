@@ -3,7 +3,7 @@ import React from 'react'
 import { Link, useRouteError } from 'react-router'
 // import errorLottie from '../../assets/lotties/error.json'
 import page404Lottie from '../../assets/lotties/error.json'
-import { Helmet } from 'react-helmet-async'
+
 
 
 
@@ -16,7 +16,7 @@ const ErrorPage = () => {
 
   return (
     <>
-      <Helmet><title>ErrorPage- HealthCare</title></Helmet>
+     
       <div className='py-24 text-center dark:text-white dark:bg-gray-800 '>
 
 
