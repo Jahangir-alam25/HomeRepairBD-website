@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 import useAuth from '../../hooks/useAuth';
 import Lottie from 'lottie-react';
 import loginLottie from '../../assets/lotties/login.json'
+import SocialLogin from '../Shared/SocialLogin';
 
 
 const Login = () => {
@@ -29,16 +30,16 @@ const Login = () => {
     }
   
     return (
-        <div className='flex justify-center items-center min-h-screen'>
+        <div className='flex justify-center items-center min-h-screen gap-7'>
             
             <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl py-5 ">
                 <h3 className='font-bold text-2xl text-center'>Login Your Account</h3>
-                <form onSubmit={handleLogin} className="card-body dark:bg-gray-800 dark:text-white">
+                <form onSubmit={handleLogin} className="card-body ">
                     <fieldset className="fieldset">
-                        <label className="label dark:text-white">Email</label>
-                        <input type="email" name='email' className="input dark:bg-gray-800 dark:text-white dark:border dark:border-white" placeholder="Email" />
-                        <label className="label dark:text-white">Password</label>
-                        <label className="input dark:bg-gray-800 dark:text-white dark:border dark:border-white validator relative">
+                        <label className="label ">Email</label>
+                        <input type="email" name='email' className="input " placeholder="Email" />
+                        <label className="label ">Password</label>
+                        <label className="input  validator relative">
 
                             <input
                                 type={showPassword ? "text" : "password"}
@@ -58,9 +59,8 @@ const Login = () => {
                         </label>
                         <div><a className="link link-hover">Forgot password?</a></div>
                         <button className="btn btn-neutral mt-4">Login</button>
-                        <div className="divider">OR</div>
-                       
-                        <h3 className='font-bold text-center py-2'>Don't have an account ? <Link className='text-secondary' to="/auth/register">Register</Link></h3>
+                       <SocialLogin></SocialLogin>
+                        <h3 className='font-bold text-center py-2'>Don't have an account ? <Link className='text-purple-700' to="/auth/register">Register</Link></h3>
                     </fieldset>
                 </form>
             </div>

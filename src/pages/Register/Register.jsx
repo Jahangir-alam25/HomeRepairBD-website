@@ -10,6 +10,7 @@ import registerLottie from '../../assets/lotties/register.json'
 import useAuth from '../../hooks/useAuth';
 import Swal from 'sweetalert2';
 import { toast } from 'react-toastify';
+import SocialLogin from '../Shared/SocialLogin';
 
 const Register = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -99,12 +100,8 @@ const Register = () => {
                         </p>
 
                         <button type='submit' className="btn btn-neutral mt-4">Register</button>
-                        <div className="divider">OR</div>
-                        <button type="button" className="btn btn-outline btn-secondary">
-                            <FcGoogle size={20}></FcGoogle>
-                            Continue with Google
-                        </button>
-                        <h3 className='font-bold text-center py-2'>Already have an account ? <Link className='text-secondary' to="/auth/login">Login</Link></h3>
+                        <SocialLogin></SocialLogin>
+                        <h3 className='font-bold text-center py-2'>Already have an account ? <Link className='text-purple-700' to="/auth/login">Login</Link></h3>
                     </fieldset>
                 </form>
             </div>
