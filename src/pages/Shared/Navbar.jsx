@@ -4,11 +4,27 @@ import { Link, NavLink } from 'react-router';
 import ThemeToggleBTN from './ThemeToggleBTN';
 import { RiArrowDropDownLine } from 'react-icons/ri';
 import useAuth from '../../hooks/useAuth';
+import Swal from 'sweetalert2';
 
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
 
-    const { user } = useAuth();
+    const { user, logOut } = useAuth();
+
+    const handleLogOut = () => {
+        console.log("user trying to LogOut");
+        logOut()
+            .then(() => {
+                Swal.fire({
+                    title: "Logout Successfully",
+                    text: "You clicked the button!",
+                    icon: "success"
+                })
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    };
 
 
     const links = (
@@ -99,7 +115,7 @@ const Navbar = () => {
                                     {user.displayName}
                                 </span>
                             </div>
-                            <button className="text-sm btn rounded px-10 bg-primary text-white hover:underline">Logout</button>
+                            <button onClick={handleLogOut} className="text-sm btn rounded px-10 bg-primary text-white hover:underline">Logout</button>
                         </div>
                     ) : (
                         <div className="space-x-3">
@@ -145,7 +161,7 @@ const Navbar = () => {
                                 className="w-8 h-8 rounded-full"
                             />
                             <span className="text-sm">{user.username}</span>
-                            <button className="btn px-10 bg-primary  text-white hover:underline ml-auto">
+                            <button onClick={handleLogOut} className="btn px-10 bg-primary  text-white hover:underline ml-auto">
                                 Logout
                             </button>
                         </div>
