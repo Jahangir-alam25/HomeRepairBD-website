@@ -5,6 +5,7 @@ import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import AuthLayouts from "../layouts/AuthLayouts";
 import Register from "../pages/Register/Register"
 import Login from "../pages/Login/Login";
+import AddService from "../pages/AddServise/AddService";
 
 export const router = createBrowserRouter([
     {
@@ -15,6 +16,10 @@ export const router = createBrowserRouter([
                 path: '/',
                 Component: Home
             },
+            {
+                path: '/addService',
+                element: <AddService></AddService>
+            }
 
         ]
     },
