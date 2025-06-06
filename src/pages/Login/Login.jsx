@@ -1,7 +1,7 @@
 
 import React, {  useState } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
-import { Link } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
 import useAuth from '../../hooks/useAuth';
 import Lottie from 'lottie-react';
@@ -12,6 +12,9 @@ import SocialLogin from '../Shared/SocialLogin';
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
     const {  setUser, signIn } = useAuth();
+    const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state || '/';
     
     const handleLogin = (e) => {
         e.preventDefault();
@@ -21,7 +24,7 @@ const Login = () => {
         
         signIn(email, password).then((result) => {
             const user = result.user;
-            
+            navigate(from);
             setUser(user);
             toast.success("Login Successfully")
         }).catch((error) => {
@@ -59,7 +62,7 @@ const Login = () => {
                         </label>
                         <div><a className="link link-hover">Forgot password?</a></div>
                         <button className="btn btn-neutral mt-4">Login</button>
-                       <SocialLogin></SocialLogin>
+                       <SocialLogin from={from}></SocialLogin>
                         <h3 className='font-bold text-center py-2'>Don't have an account ? <Link className='text-purple-700' to="/auth/register">Register</Link></h3>
                     </fieldset>
                 </form>

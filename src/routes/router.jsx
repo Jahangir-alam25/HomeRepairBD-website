@@ -6,6 +6,8 @@ import AuthLayouts from "../layouts/AuthLayouts";
 import Register from "../pages/Register/Register"
 import Login from "../pages/Login/Login";
 import AddService from "../pages/AddServise/AddService";
+import PrivateRoute from "./PrivateRoute";
+import AllService from "../pages/AllService/AllService";
 
 export const router = createBrowserRouter([
     {
@@ -18,7 +20,12 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/addService',
-                element: <AddService></AddService>
+                element: <PrivateRoute><AddService></AddService></PrivateRoute>
+            },
+            {
+                path: '/services',
+                Component: AllService,
+                loader: () => fetch('http://localhost:3000/services')
             }
 
         ]

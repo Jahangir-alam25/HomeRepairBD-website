@@ -17,14 +17,14 @@ const ErrorPage = () => {
   return (
     <>
      
-      <div className='py-24 text-center dark:text-white dark:bg-gray-800 '>
+      <div className='py-24 text-center '>
 
 
         <h1 className=' flex justify-center items-center'>
           <Lottie className='w-96' loop={true} animationData={page404Lottie}></Lottie>
         </h1>
 
-        <p className='mb-3 text-xl font-bold dark:text-white text-gray-900 md:text-2xl'>
+        <p className='mb-3 text-xl font-bold  md:text-2xl'>
           {error?.error?.message || 'Something Went Wrong!'}
         </p>
         <Link to='/'>
