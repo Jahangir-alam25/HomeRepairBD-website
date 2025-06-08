@@ -62,7 +62,7 @@ const Navbar = () => {
                         </li>
                         <li>
                             <NavLink
-                                to="/manageService"
+                                to="/myPostedServices"
                             >
                                 Manage Service
                             </NavLink>

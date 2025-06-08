@@ -9,6 +9,9 @@ import AddService from "../pages/AddServise/AddService";
 import PrivateRoute from "./PrivateRoute";
 import AllService from "../pages/AllService/AllService";
 import ServiceDetails from "../pages/ServiceDetails/ServiceDetails";
+import BookingForm from "../pages/BookingForm/BookingForm";
+import MyPostedService from "../pages/MyPostedService/MyPostedService";
+import UpdatedService from "../pages/MyPostedService/UpdatedService";
 
 export const router = createBrowserRouter([
     {
@@ -32,6 +35,20 @@ export const router = createBrowserRouter([
                 path: '/services/:id',
                 loader: ({ params }) => fetch(`http://localhost:3000/services/${params.id}`),
                 element: <PrivateRoute><ServiceDetails></ServiceDetails></PrivateRoute>
+            },
+            {
+                path: '/bookingServices/:id',
+                loader: ({ params }) => fetch(`http://localhost:3000/services/${params.id}`),
+                element: <PrivateRoute><BookingForm></BookingForm></PrivateRoute>
+            },
+            {
+                path: '/myPostedServices',
+                element: <PrivateRoute><MyPostedService></MyPostedService></PrivateRoute>
+            },
+            {
+                path: "/updateService/:id",
+                loader: ({ params }) => fetch(`http://localhost:3000/services/${params.id}`),
+                element: <PrivateRoute><UpdatedService></UpdatedService></PrivateRoute>
             }
 
         ]
