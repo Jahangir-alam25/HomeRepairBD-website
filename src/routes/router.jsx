@@ -12,6 +12,9 @@ import ServiceDetails from "../pages/ServiceDetails/ServiceDetails";
 import BookingForm from "../pages/BookingForm/BookingForm";
 import MyPostedService from "../pages/MyPostedService/MyPostedService";
 import UpdatedService from "../pages/MyPostedService/UpdatedService";
+import BookedServices from "../pages/BookedServices/BookedServices";
+import ServiceToDo from "../pages/ServiceToDo/ServiceToDo";
+import ViewBooking from "../pages/ServiceToDo/ViewBooking";
 
 export const router = createBrowserRouter([
     {
@@ -49,7 +52,22 @@ export const router = createBrowserRouter([
                 path: "/updateService/:id",
                 loader: ({ params }) => fetch(`http://localhost:3000/services/${params.id}`),
                 element: <PrivateRoute><UpdatedService></UpdatedService></PrivateRoute>
+            },
+            {
+                path: '/bookedServices',
+                element: <PrivateRoute><BookedServices></BookedServices></PrivateRoute>
+            },
+            {
+                path: '/serviceToDo',
+               
+                element: <PrivateRoute><ServiceToDo></ServiceToDo></PrivateRoute>
+            },
+            {
+                path: '/bookings/:id',
+                loader: ({ params }) => fetch(`http://localhost:3000/bookings/service/${params.id}`),
+                element: <PrivateRoute><ViewBooking></ViewBooking></PrivateRoute>
             }
+
 
         ]
     },
