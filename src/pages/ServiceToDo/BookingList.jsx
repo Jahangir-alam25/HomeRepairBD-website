@@ -41,7 +41,9 @@ const BookingList = ({servicesCreatedByPromise}) => {
                                 <td>{service.booking_count}</td>
                                 
                                 <td className=' gap-2 flex '>
-                                    <Link to={`/bookings/${service._id}`}>view Bookings</Link>
+                                    <Link to={`/bookings/${service._id}`}>
+                                    <button className='btn'>view Bookings</button>
+                                    </Link>
                                     
                             </td>
                             </tr>)

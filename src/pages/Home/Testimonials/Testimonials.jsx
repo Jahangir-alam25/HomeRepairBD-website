@@ -16,7 +16,7 @@ const testimonials = [
     title: "EXCELLENT WORK",
     company: "Home Repair BD",
     review: "Very professional team and timely delivery.",
-    image: "https://i.ibb.co/YR5zqtY/profile2.jpg"
+    image: "https://i.ibb.co/DPLDrXs2/amood-oyindamola-r1e-Ws-Gi8-Aw0-unsplash.jpg"
   },
   {
     name: "Mr. Kawsar Ahmed",
@@ -24,23 +24,16 @@ const testimonials = [
     title: "HIGHLY RECOMMEND",
     company: "Home Repair BD",
     review: "They renovated my office floor. Clean work and great service!",
-    image: "https://i.ibb.co/hZx8S0c/profile3.jpg"
+    image: "https://i.ibb.co/1G0RP2Ch/happy-male-with-satisfied-expression.jpg"
   },
-  {
-    name: "Mrs. Nila Sultana",
-    location: "Dhanmondi",
-    title: "IMPRESSIVE RESULT",
-    company: "Home Repair BD",
-    review: "They handled everything with care. Highly satisfied!",
-    image: "https://i.ibb.co/qChJwvR/profile4.jpg"
-  }
+  
 ];
 
 const Testimonials = () => {
      return (
-    <div>
-        <div className='divider'><h1 className='text-4xl font-bold text-center mb-4'>What Our Clients Have To Say</h1></div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-4">
+    <div className='my-20'>
+        <div className='divider mb-12'><h1 className='sm:text-4xl font-bold text-center'>What Our <span className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-500 to-purple-600 bg-[length:200%_200%]">Clients</span>  Have To Say</h1></div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
       {testimonials.map((item, index) => (
         <TestimonialCard key={index} item={item} />
       ))}

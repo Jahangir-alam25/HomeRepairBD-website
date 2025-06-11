@@ -39,23 +39,32 @@ const ViewBooking = () => {
                     {/* head */}
                     <thead>
                         <tr>
-                            <th></th>
+                            <th>No.</th>
                             <th>Name</th>
-                            <th>Job</th>
+                            <th>Email</th>
+                            <th>Date</th>
                             <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
                         {/* row 1 */}
                         {
-                            data.map((application, index) => <tr key={application._id} className="bg-base-200">
+                            data.map((client, index) => <tr key={client._id} className="bg-base-200">
 
                                 <th>{index + 1}</th>
-                                <td>{application.userName}</td>
-                                <td>Quality Control Specialist</td>
+                                <td>
+                                    <div className='font-bold'>
+                                        {client.userName}
+                                    </div>
+                                    <div>
+                                        <p>Address : {client.instruction}</p>
+                                    </div>
+                                </td>
+                                <td>{client.userEmail}</td>
+                                <td>{client.date}</td>
                                 <td>
 
-                                    <select onChange={(e) => handleStatusUpdate(e, application._id)} defaultValue={application.serviceStatus} className="select">
+                                    <select onChange={(e) => handleStatusUpdate(e, client._id)} defaultValue={client.serviceStatus} className="select w-36">
                                         <option disabled={true}>Update Status</option>
                                         <option>Pending</option>
                                         <option>working</option>

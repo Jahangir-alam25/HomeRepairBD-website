@@ -1,82 +1,116 @@
 
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FaTools, FaPaintRoller, FaBolt } from 'react-icons/fa';
 
-import React from 'react';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+const packages = [
+  {
+    icon: <FaTools className="text-6xl text-white" />,
+    title: 'Complete Repair Package',
+    description: 'From plumbing to electrical, get everything fixed by experts.',
+    image: 'https://i.ibb.co/3YscPSzP/aaron-huber-G7s-E2-S4-Lab4-unsplash.jpg'
+  },
+  {
+    icon: <FaPaintRoller className="text-6xl text-white" />,
+    title: 'Interior Revamp',
+    description: 'Stylish and affordable makeovers for every room.',
+    image: 'https://i.ibb.co/3YscPSzP/aaron-huber-G7s-E2-S4-Lab4-unsplash.jpg'
+  },
+  {
+    icon: <FaBolt className="text-6xl text-white" />,
+    title: 'Instant Service Plan',
+    description: 'Emergency services delivered in under 2 hours.',
+    image: 'https://i.ibb.co/VcmMpr2H/young-cute-family-repairs-room.jpg'
+  }
+];
 
 const Banner = () => {
+  const [current, setCurrent] = useState(0);
 
-    const slides = [
-        {
-            image: "https://i.ibb.co/G4sgr82D/julia-zyablova-S1v7h-VUi-Cg0-unsplash.jpg",
-            title: "Welcome to HealthCare Services",
-            subtitle: "Providing expert medical care with compassion, commitment, and cutting-edge technology.",
-        },
-        {
-            image: "https://i.ibb.co/GfLsjJJ2/anton-8q-U8-X1zkv-I-unsplash.jpg",
-            title: "Your Health, Our Mission",
-            subtitle: "We prioritize your well-being with 24/7 services, specialist support, and patient-first care.",
-        },
-        {
-            image: "https://i.ibb.co/7d5Mh0nL/national-cancer-institute-NFvd-KIhx-Yl-U-unsplash.jpg",
-            title: "Care You Can Trust",
-            subtitle: "Personalized treatments and dedicated professionals—because your health deserves the best.",
-        },
-    ];
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % packages.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
 
+  const transition = {
+    duration: 3,
+    ease: [0.43, 0.13, 0.23, 0.96]
+  };
 
-    const settings = {
-        dots: true,
-        infinite: true,
-        speed: 800,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 4000,
-        arrows: true
-    };
+  const currentPackage = packages[current];
 
-    return (
-        <div className="w-11/12 mx-auto py-6">
-            <div className="flex  sm:flex-row justify-center items-center mb-10 ">
-                <input
-                    className=" w-full lg:w-5/12 sm:w-80 px-4 py-2 rounded-l-2xl border-2  border-gray-300 shadow-sm"
-                    type="text"
-                    placeholder="Search "
-                />
-                <button className="bg-primary text-white text-lg px-10 py-2 rounded-r-2xl  transition">
-                    Search
-                </button>
-            </div>
+  return (
+    <section className="relative py-24 px-6 text-white overflow-hidden bg-black">
+      {/* Background Image Layer */}
+      <div
+        className="absolute inset-0 bg-cover bg-center z-0 blur-sm brightness-75"
+        style={{
+          backgroundImage:
+            "url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80')"
+        }}
+      />
 
-            <div className="text-center mb-6">
-                <h2 className="text-3xl font-bold">Committed to Your Health & Well-being</h2>
-                <p className=" mt-2">
-                    Experience compassionate care, modern medical facilities, and expert professionals—all dedicated to keeping you and your family healthy.
-                </p>
-            </div>
-            <Slider {...settings}>
-                {slides.map((slide) => (
-                    <div className="relative">
-                        <img
-                            className="rounded-lg w-full h-120"
-                            src={slide.image}
-                            alt="Slide 1"
-                        />
-                        <div className="absolute inset-0 flex flex-col justify-center items-center bg-black/40 text-white rounded-lg">
-                            <h2 className="text-3xl font-bold">{slide.title}</h2>
-                            <p className="text-center my-4">{slide.subtitle}</p>
-                            <button className="btn text-white bg-primary">Learn More</button>
-                        </div>
-                    </div>
-                ))}
-            </Slider>
-        </div>
-    );
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-opacity-60 z-0" />
+
+      {/* Content */}
+      <div className="relative z-10 max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-center gap-5 px-0 sm:px-20">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={`text-${current}`}
+            initial={{ opacity: 0, x: -60 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -60 }}
+            transition={transition}
+            className="flex-1"
+          >
+
+            <motion.h1
+              animate={{
+                backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+              }}
+              transition={{
+                duration: 5,
+                repeat: Infinity,
+                ease: "linear",
+              }}
+              className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-500 to-purple-600 bg-[length:200%_200%]"
+            >
+             Welcome to Home Repair
+            </motion.h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">{currentPackage.title}</h1>
+            <p className="text-lg md:text-xl mb-6">{currentPackage.description}</p>
+            <button className="bg-linear-65 from-[#691ae3] to-pink-500 text-black font-semibold py-3 px-6 rounded-xl transition duration-300">
+              Book a Service
+            </button>
+          </motion.div>
+        </AnimatePresence>
+
+        <AnimatePresence mode="wait">
+          <motion.img
+            key={`img-${current}`}
+            src={currentPackage.image}
+            alt={currentPackage.title}
+            initial={{ opacity: 0, x: 60 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 60 }}
+            transition={transition}
+            className="flex-1 max-w-sm sm:max-w-md rounded-xl shadow-xl"
+          />
+        </AnimatePresence>
+      </div>
+    </section>
+  );
 };
 
 export default Banner;
+
+
+
+
+
 
 
 

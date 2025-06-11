@@ -5,6 +5,7 @@ import ThemeToggleBTN from './ThemeToggleBTN';
 import { RiArrowDropDownLine } from 'react-icons/ri';
 import useAuth from '../../hooks/useAuth';
 import Swal from 'sweetalert2';
+import { motion } from 'framer-motion';
 
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -31,7 +32,7 @@ const Navbar = () => {
         <>
             <li>
                 <NavLink
-                    to="/"  
+                    to="/"
                 >
                     Home
                 </NavLink>
@@ -47,7 +48,7 @@ const Navbar = () => {
             {user && (
                 <li className="dropdown dropdown-hover dropdown-bottom">
                     <div tabIndex={0} role="button" className="m-1 flex items-center">
-                        Dashboard <RiArrowDropDownLine size={24}/>
+                        Dashboard <RiArrowDropDownLine size={24} />
                     </div>
                     <ul
                         tabIndex={0}
@@ -91,8 +92,20 @@ const Navbar = () => {
             <div className="max-w-7xl mx-auto flex justify-between items-center">
                 {/* Logo */}
                 <div className="flex items-center gap-2 ">
-                    <img src="https://i.ibb.co/MbHnpwv/hospital.png" alt="logo" className="h-12 w-12" />
-                    <h1 className="text-primary font-bold text-2xl">HealthCare</h1>
+                    <img src="https://i.ibb.co/GvH5Nmzf/mortgage.png" alt="logo" className="h-12 w-12" />
+                    <motion.h1
+                        animate={{
+                            backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+                        }}
+                        transition={{
+                            duration: 5,
+                            repeat: Infinity,
+                            ease: "linear",
+                        }}
+                        className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-500 to-purple-600 bg-[length:200%_200%]"
+                    >
+                        HomeRepairBD
+                    </motion.h1>
 
                 </div>
 
@@ -115,7 +128,7 @@ const Navbar = () => {
                                     {user.displayName}
                                 </span>
                             </div>
-                            <button onClick={handleLogOut} className="text-sm btn rounded px-10 bg-primary text-white hover:underline">Logout</button>
+                            <button onClick={handleLogOut} className="text-sm btn rounded px-10 bg-linear-65 from-[#911ae3] to-pink-500 text-white hover:underline">Logout</button>
                         </div>
                     ) : (
                         <div className="space-x-3">
