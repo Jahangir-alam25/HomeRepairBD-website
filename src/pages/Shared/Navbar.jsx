@@ -132,10 +132,10 @@ const Navbar = () => {
                         </div>
                     ) : (
                         <div className="space-x-3">
-                            <Link to="/auth/register" className="bg-primary text-white px-10 py-2 rounded  text-sm">
+                            <Link to="/auth/register" className="bg-linear-65 from-[#911ae3] to-pink-500  text-white px-10 py-2 rounded  text-sm">
                                 Sign Up
                             </Link>
-                            <Link to="/auth/login" className="bg-primary text-white px-10 py-2 rounded  text-sm">
+                            <Link to="/auth/login" className="bg-linear-65 from-[#911ae3] to-pink-500  text-white px-10 py-2 rounded  text-sm">
                                 Login
                             </Link>
                         </div>
@@ -174,16 +174,16 @@ const Navbar = () => {
                                 className="w-8 h-8 rounded-full"
                             />
                             <span className="text-sm">{user.username}</span>
-                            <button onClick={handleLogOut} className="btn px-10 bg-primary  text-white hover:underline ml-auto">
+                            <button onClick={handleLogOut} className="btn px-10 bg-linear-65 from-[#911ae3] to-pink-500 text-white hover:underline ml-auto">
                                 Logout
                             </button>
                         </div>
                     ) : (
                         <div className=" gap-3 flex justify-between ">
-                            <Link to="/auth/register" className="bg-primary btn-block text-white  text-center py-2 rounded  text-sm">
+                            <Link to="/auth/register" className="bg-linear-65 from-[#911ae3] to-pink-500 btn-block text-white text-center py-2 rounded  text-sm">
                                 Sign Up
                             </Link>
-                            <Link to="/auth/login" className="bg-primary btn-block text-white text-center py-2 rounded  text-sm">
+                            <Link to="/auth/login" className="bg-linear-65 from-[#911ae3] to-pink-500 btn-block text-white text-center py-2 rounded  text-sm">
                                 Login
                             </Link>
                         </div>

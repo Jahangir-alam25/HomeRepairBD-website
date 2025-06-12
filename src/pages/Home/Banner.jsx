@@ -2,43 +2,47 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaTools, FaPaintRoller, FaBolt } from 'react-icons/fa';
+import { Link } from 'react-router';
 
 const packages = [
   {
     icon: <FaTools className="text-6xl text-white" />,
-    title: 'Complete Repair Package',
-    description: 'From plumbing to electrical, get everything fixed by experts.',
+    title: 'Trusted Home Repair Services in Bangladesh',
+    description: 'From plumbing to electrical, HomeRepairBD delivers expert solutions right to your door—fast, reliable, and affordable.',
     image: 'https://i.ibb.co/3YscPSzP/aaron-huber-G7s-E2-S4-Lab4-unsplash.jpg'
   },
   {
     icon: <FaPaintRoller className="text-6xl text-white" />,
-    title: 'Interior Revamp',
-    description: 'Stylish and affordable makeovers for every room.',
+    title: 'Stylish Interior Revamp by HomeRepairBD',
+    description: 'Transform your home with our expert interior design and renovation packages tailored to your budget and taste.',
     image: 'https://i.ibb.co/3YscPSzP/aaron-huber-G7s-E2-S4-Lab4-unsplash.jpg'
   },
   {
     icon: <FaBolt className="text-6xl text-white" />,
-    title: 'Instant Service Plan',
-    description: 'Emergency services delivered in under 2 hours.',
+    title: 'Quick & Reliable Emergency Services',
+    description: 'Need help fast? HomeRepairBD’s instant service plan gets professionals to your home in under 2 hours—anytime, anywhere in BD.',
     image: 'https://i.ibb.co/VcmMpr2H/young-cute-family-repairs-room.jpg'
   }
 ];
 
+
 const Banner = () => {
   const [current, setCurrent] = useState(0);
 
+ 
+
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % packages.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
+  const interval = setInterval(() => {
+    setCurrent((prev) => (prev + 1) % packages.length);
+  }, 5000); // 5 seconds
+  return () => clearInterval(interval);
+}, []);
 
-  const transition = {
-    duration: 3,
-    ease: [0.43, 0.13, 0.23, 0.96]
-  };
-
+ 
+const transition = {
+  duration: 1.2, 
+  ease: [0.43, 0.13, 0.23, 0.96]
+};
   const currentPackage = packages[current];
 
   return (
@@ -82,9 +86,11 @@ const Banner = () => {
             </motion.h1>
             <h1 className="text-4xl md:text-5xl font-bold mb-4">{currentPackage.title}</h1>
             <p className="text-lg md:text-xl mb-6">{currentPackage.description}</p>
+            <Link to="/services">
             <button className="bg-linear-65 from-[#691ae3] to-pink-500 text-black font-semibold py-3 px-6 rounded-xl transition duration-300">
               Book a Service
             </button>
+            </Link>
           </motion.div>
         </AnimatePresence>
 

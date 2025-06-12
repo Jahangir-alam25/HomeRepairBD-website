@@ -1,20 +1,54 @@
+
 import React, { useState } from 'react';
 import useAuth from '../../hooks/useAuth';
-import { useLoaderData } from 'react-router';
+import { useLoaderData, useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
+
+// Reusable readonly input field
+const ReadOnlyInput = ({ label, value }) => (
+  <fieldset className="mb-4">
+    <legend className="font-semibold mb-1">{label}</legend>
+    <input
+      type="text"
+      value={value}
+      readOnly
+      className="input input-bordered w-full bg-gray-100 dark:bg-gray-700 cursor-not-allowed"
+      aria-readonly="true"
+    />
+  </fieldset>
+);
 
 const BookingForm = () => {
   const { user } = useAuth();
   const service = useLoaderData();
-  console.log(user.email);
-
+  const navigate = useNavigate();
 
   const [date, setDate] = useState('');
   const [instruction, setInstruction] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [dateError, setDateError] = useState('');
 
-  const handleSubmit = (e) => {
+  const today = new Date().toISOString().split('T')[0];
+
+  // Validate date is not past
+  const handleDateChange = (e) => {
+    const selectedDate = e.target.value;
+    if (selectedDate < today) {
+      setDateError('Please select today or a future date.');
+    } else {
+      setDateError('');
+      setDate(selectedDate);
+    }
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const form = e.target;
+    if (!date || dateError) {
+      toast.error('Please provide a valid booking date.');
+      return;
+    }
+    setLoading(true);
+
     const bookingData = {
       serviceId: service._id,
       serviceName: service.name,
@@ -28,99 +62,134 @@ const BookingForm = () => {
       price: service.price,
       serviceStatus: 'pending',
     };
-    fetch('http://localhost:3000/bookings', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(bookingData),
-    })
-      .then(res => res.json())
-      .then(data => {
-        // console.log(data);
-        if (data.insertedId) {
-          toast.success('Service added successfully');
-          form.reset();
-        }
-      })
-      .catch(err => {
-        console.error(err);
-        toast.error('Failed to add service');
+
+    try {
+      const res = await fetch('http://localhost:3000/bookings', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(bookingData),
       });
+
+      const data = await res.json();
+      if (data.insertedId) {
+        toast.success('Service booked successfully!');
+        e.target.reset();
+        navigate('/bookedServices');
+      } else {
+        throw new Error('Booking failed');
+      }
+    } catch (err) {
+      console.error(err);
+      toast.error('Booking failed. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (!service || !user) {
     return <div className="p-6 text-red-500">Invalid Booking Request</div>;
   }
+
   return (
-    <form onSubmit={handleSubmit} className="max-w-6xl mx-auto p-6 bg-white shadow rounded-xl my-6 space-y-4">
-      <h2 className="text-2xl font-bold mb-4 text-center">Service Booking Form</h2>
-
-      <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
-        <fieldset className="bg-base-200 border border-base-300 rounded-lg p-4">
-          <label className="block mb-1 font-medium">Service ID</label>
-          <input type="text" value={service._id} className="w-full input " placeholder="Service ID" />
-        </fieldset>
-        <fieldset className="bg-base-200 border border-base-300 rounded-lg p-4">
-          <label className="block mb-1 font-medium">Service Name</label>
-          <input type="text" value={service.name} className="w-full input " />
-        </fieldset>
-
-        <fieldset className="bg-base-200 border border-base-300 rounded-lg p-4">
-          <label className="block mb-1 font-medium">Service URL</label>
-          <input type="text" value={service.image} className="w-full input input-bordered" />
-        </fieldset>
-        {/* Image URL */}
-        <fieldset className="bg-base-200 0 border border-base-300 rounded-lg p-4">
-          <label className="block mb-1  font-medium">Service Provider Email</label>
-          <input type="text" value={service.providerEmail} className="w-full input input-bordered" />
-        </fieldset>
-
-        {/* Price */}
-        <fieldset className="bg-base-200 border border-base-300 rounded-lg p-4">
-          <label className="block mb-1 dark:text-white font-medium">Service Provider Name</label>
-          <input type="text" value={service.providerName} className="w-full input input-bordered" />
-        </fieldset>
-
-        {/* Service Area */}
-        <fieldset className="bg-base-200  border border-base-300 rounded-lg p-4">
-          <label className="block mb-1  font-medium">User Email</label>
-          <input type="text" value={user.email} className="w-full input input-bordered" />
-        </fieldset>
-
-        {/* Description (Full Width) */}
-        <fieldset className="bg-base-200 dark:bg-gray-600 border border-base-300 rounded-lg p-4">
-          <label className="block mb-1 font-medium">User Name</label>
-          <input type="text" value={user.displayName} className="w-full input input-bordered" />
-        </fieldset>
-
-        <fieldset className="bg-base-200 border border-base-300 rounded-lg p-4">
-          <label className="block mb-1 font-medium">Service Name</label>
-          <input
-            type="date"
-            className="w-full input input-bordered"
-            required
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
+    <div className="max-w-7xl mx-auto my-10 px-4 flex flex-col lg:flex-row gap-10">
+      {/* Booking Summary Sidebar - visible on lg+ */}
+      <aside className="hidden lg:block lg:w-1/3 h-fit sticky top-20 bg-base-100 border border-base-300 rounded-lg p-6 shadow-md">
+        <h3 className="text-xl font-bold mb-4 text-purple-600">Booking Summary</h3>
+        <div className="mb-3">
+          <img
+            src={service.image}
+            alt={service.name}
+            className="rounded-lg w-full h-40 object-cover mb-4"
           />
+          <p className="font-semibold text-lg">{service.name}</p>
+          <p className="text-gray-600 mt-1">Provider: {service.providerName}</p>
+          <p className="text-green-600 font-semibold mt-2 text-lg">${parseFloat(service.price).toFixed(2)}</p>
+          <span className="badge badge-warning mt-2">Status: Pending</span>
+        </div>
+        <p className="text-sm text-gray-500">
+          You can safely book your preferred service. After booking, the provider will contact you to confirm details.
+        </p>
+      </aside>
+
+      {/* Main Form */}
+      <form
+        onSubmit={handleSubmit}
+        className="lg:w-2/3 bg-white shadow-lg border border-base-300 rounded-xl p-8 space-y-8"
+        aria-label="Service Booking Form"
+      >
+        <h2 className="text-3xl font-bold text-center text-purple-600 mb-6">Service Booking Form</h2>
+
+        {/* Service Info */}
+        <fieldset className="border border-base-300 rounded-lg p-4">
+          <legend className="font-semibold px-2 text-lg">Service Information</legend>
+          <ReadOnlyInput label="Service ID" value={service._id} />
+          <ReadOnlyInput label="Service Name" value={service.name} />
+          <ReadOnlyInput label="Service Image URL" value={service.image} />
+          <ReadOnlyInput label="Provider Name" value={service.providerName} />
+          <ReadOnlyInput label="Provider Email" value={service.providerEmail} />
         </fieldset>
-        <fieldset className="md:col-span-2 bg-base-200 border border-base-300 rounded-lg p-4">
-          <label className="block mb-1 font-medium">Service Name</label>
-          <textarea
-            className="w-full textarea textarea-bordered"
-            placeholder="Special instructions, address, area, etc."
-            value={instruction}
-            onChange={(e) => setInstruction(e.target.value)}
-            rows={4}
-          />
+
+        {/* User Info */}
+        <fieldset className="border border-base-300 rounded-lg p-4">
+          <legend className="font-semibold px-2 text-lg">Your Information</legend>
+          <ReadOnlyInput label="Your Name" value={user.displayName} />
+          <ReadOnlyInput label="Your Email" value={user.email} />
         </fieldset>
-      </div>
 
+        {/* Booking Details */}
+        <fieldset className="border border-base-300 rounded-lg p-4 space-y-4">
+          <legend className="font-semibold px-2 text-lg">Booking Details</legend>
 
+          <div>
+            <label htmlFor="bookingDate" className="label font-medium">
+              Select Booking Date <span className="text-red-500">*</span>
+            </label>
+            <input
+              type="date"
+              id="bookingDate"
+              className={`input input-bordered w-full ${dateError ? 'input-error' : ''}`}
+              min={today}
+              value={date}
+              onChange={handleDateChange}
+              required
+              aria-describedby="dateError"
+            />
+            {dateError && (
+              <p className="text-red-500 text-sm mt-1" id="dateError">
+                {dateError}
+              </p>
+            )}
+          </div>
 
-      <button type="submit" className="btn btn-primary w-full">Purchase</button>
-    </form>
+          <div>
+            <label htmlFor="instructions" className="label font-medium">
+              Special Instructions / Address
+            </label>
+            <textarea
+              id="instructions"
+              className="textarea textarea-bordered w-full"
+              rows={4}
+              placeholder="Provide any special instructions or your address"
+              value={instruction}
+              onChange={(e) => setInstruction(e.target.value)}
+              aria-multiline="true"
+            />
+          </div>
+        </fieldset>
+
+        {/* Submit Button */}
+        <button
+          type="submit"
+          disabled={loading}
+          className="btn w-full bg-gradient-to-r from-[#911ae3] to-pink-500 text-white text-lg font-semibold tracking-wide disabled:opacity-70 disabled:cursor-not-allowed transition"
+        >
+          {loading ? 'Booking...' : 'Confirm Booking'}
+        </button>
+      </form>
+    </div>
   );
 };
 
 export default BookingForm;
+
+

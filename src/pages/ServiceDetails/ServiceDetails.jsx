@@ -1,44 +1,150 @@
+
 import React from 'react';
+import {
+  FaMapMarkerAlt,
+  FaCheckCircle,
+  FaClock,
+  FaTools,
+  FaShieldAlt,
+  FaUserCheck,
+} from 'react-icons/fa';
 import { Link, useLoaderData } from 'react-router';
 
 const ServiceDetails = () => {
-    const { _id, image, name, description, price, providerName, area, providerImage, } = useLoaderData();
+  const {
+    _id,
+    image,
+    name,
+    description,
+    price,
+    providerName,
+    area,
+    providerImage,
+  } = useLoaderData();
 
+  // Organized feature card data
+  const organizedFeatures = [
+    {
+      icon: <FaClock className="text-3xl text-purple-600" />,
+      title: 'Fast Response',
+      desc: 'Our providers reach you within hours of booking.',
+    },
+    {
+      icon: <FaTools className="text-3xl text-green-600" />,
+      title: 'Professional Tools',
+      desc: 'All services done using modern tools and methods.',
+    },
+    {
+      icon: <FaShieldAlt className="text-3xl text-red-500" />,
+      title: 'Safety Guaranteed',
+      desc: 'We ensure complete safety and hygiene during work.',
+    },
+    {
+      icon: <FaUserCheck className="text-3xl text-blue-500" />,
+      title: 'Verified Providers',
+      desc: 'Every provider is background checked and approved.',
+    },
+  ];
 
+  return (
+    <>
+      {/* Main Service Details */}
+      <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-8 my-6 px-4">
+        {/* Left Section - Image and Info */}
+        <div className="flex-1">
+          {/* Service Image */}
+          <div className="overflow-hidden rounded-md">
+            <img
+              src={image}
+              alt={name}
+              className="w-full h-60 sm:h-96 object-cover rounded-md hover:scale-105 transition-transform duration-300"
+            />
+          </div>
 
-    return (
-        <div className=" bg-gray-100 pb-4 md:py-8">
-            <div className="bg-white mx-4 px-4 py-4 space-y-4 md:px-8 md:py-6 md:mx-12 md:space-y-8 lg:flex lg:mx-16 lg:px-6 lg:py-10 lg:gap-x-8 rounded-2xl">
+          {/* Service Text Info */}
+          <div className="mt-6">
+            <h2 className="text-3xl font-bold mb-3">{name}</h2>
+            <p className="text-gray-500 text-sm flex items-center gap-2 mb-2">
+              <FaMapMarkerAlt />
+              {area}
+            </p>
 
-                <div className="lg:w-6/12">
-                    <img className="w-full mx-auto rounded-lg" src={image} alt="" />
+            <p className="text-gray-600 mb-4">{description}</p>
+
+            <h3 className="text-xl font-semibold mb-2 text-purple-700">Service Features</h3>
+            <ul className="list-none space-y-2 mb-6">
+              {[
+                '100% Satisfaction Guarantee',
+                'Experienced & Verified Provider',
+                'Quick Response Time',
+                'Affordable Pricing',
+              ].map((feature, idx) => (
+                <li key={idx} className="flex items-center gap-2 text-gray-700">
+                  <FaCheckCircle className="text-green-500" />
+                  {feature}
+                </li>
+              ))}
+            </ul>
+
+            {/* Provider Info */}
+            <div className="flex items-center gap-x-4 mt-4">
+              <div className="flex items-center gap-x-4 dark:border dark:border-white dark:p-2 dark:rounded-lg">
+                <img
+                  src={providerImage}
+                  alt={providerName}
+                  className="w-12 h-12 rounded-full"
+                />
+                <div>
+                  <p className="font-medium">{providerName}</p>
+                  <p className="text-sm dark:text-white">Author</p>
                 </div>
-                <div className="lg:w-6/12">
-                    <div className="px-6 mx-auto">
-                        <div className='flex gap-4'>
-                            <img src={providerImage} className='w-16 h-16 rounded-full' alt="" />
-                            <div>
-                                <h1 className="text-xl md:2xl lg:text-3xl font-bold">{providerName}</h1>
-                                <p className="md:text-lg">{area}</p>
-                            </div>
-                        </div>
-
-                        <h1 className="text-xl md:2xl lg:text-3xl font-bold">{name} </h1>
-                        <p className="py-2">{description}</p>
-                        <p>Price : ${price}</p>
-
-                        <Link to={`/bookingServices/${_id}`}>
-                            <button className='btn btn-primary px-10 mt-3'>Book Now</button>
-                        </Link>
-
-                    </div>
-                    <div>
-
-                    </div>
-                </div>
+              </div>
             </div>
+          </div>
         </div>
-    );
+
+        {/* Right Section - Sticky Booking Box (desktop only) */}
+        <div className="lg:w-80">
+          <div className="sticky top-24 bg-white shadow-md rounded-md p-6 border">
+            <p className="text-lg font-semibold mb-2">Service Price</p>
+            <p className="text-2xl text-pink-600 font-bold mb-4">${price}</p>
+            <Link to={`/bookingServices/${_id}`}>
+              <button className="w-full bg-gradient-to-r from-[#911ae3] to-pink-500 text-white py-2 rounded">
+                Book Now
+              </button>
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      {/* Feature Cards Section */}
+      <div className="max-w-6xl mx-auto px-4 pb-12">
+        <h3 className="text-2xl font-bold text-center text-purple-700 mb-6">
+          Service Highlights
+        </h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {organizedFeatures.map((feature, index) => (
+            <div
+              key={index}
+              className="bg-white shadow-md rounded-xl p-5 text-center hover:shadow-lg transition-shadow duration-300 border"
+            >
+              <div className="mb-3">{feature.icon}</div>
+              <h4 className="font-semibold text-lg mb-1">{feature.title}</h4>
+              <p className="text-sm text-gray-600">{feature.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Placeholder: You can add reviews or related services here later */}
+    </>
+  );
 };
 
 export default ServiceDetails;
+
+
+
+
+
+

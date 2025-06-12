@@ -10,7 +10,7 @@ const BookedServices = () => {
         <div>
            <Suspense fallback={<div>Loading...</div>}>
                 <BookingList
-                    bookingsCreatedByPromise={bookingsCreatedByPromise(user.email)}
+                    bookingsCreatedByPromise={bookingsCreatedByPromise(user.email, user.accessToken)}
                 ></BookingList>
             </Suspense>
         </div>
