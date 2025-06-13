@@ -60,7 +60,7 @@ const BookingForm = () => {
       date,
       instruction,
       price: service.price,
-      serviceStatus: 'pending',
+      serviceStatus: 'Pending',
     };
 
     try {

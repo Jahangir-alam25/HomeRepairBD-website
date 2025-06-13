@@ -31,7 +31,7 @@ const ServiceLists = ({ servicesCreatedByPromise }) => {
 
                             Swal.fire({
                                 title: "Deleted!",
-                                text: "Your task has been deleted.",
+                                text: "Your service has been deleted.",
                                 icon: "success"
                             });
                             const remainingServices = services.filter((service) => service._id !== _id);

@@ -28,7 +28,7 @@ const ErrorPage = () => {
           {error?.error?.message || 'Something Went Wrong!'}
         </p>
         <Link to='/'>
-          <button className='bg-[#0EA106] text-white px-4 py-2 rounded'>Go to HomePage</button>
+          <button className='bg-linear-65 from-[#911ae3] to-pink-500 text-white px-4 py-2 rounded'>Go to HomePage</button>
         </Link>
       </div>
     </>

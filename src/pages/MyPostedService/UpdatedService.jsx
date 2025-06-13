@@ -39,7 +39,7 @@ const navigate = useNavigate();
     return (
          <div className="px-4 py-12 md:px-24">
             <div className="text-center space-y-4 mb-10">
-                <h1 className="text-4xl md:text-6xl font-bold">Update Service</h1>
+                <h1 className="text-4xl text-purple-600 md:text-6xl font-bold">Update Service</h1>
                 <p className="text-gray-500 max-w-3xl mx-auto text-sm md:text-base">
                     Fill out the form below to update your service. Include details like image URL, price, area, and description.
                 </p>
@@ -87,7 +87,7 @@ const navigate = useNavigate();
                 </div>
 
                 <div>
-                    <input type="submit" className="btn bg-primary w-full px-8" value="Update Service" />
+                    <input type="submit" className="btn bg-linear-65 from-purple-600 to-pink-600 text-white w-full px-8" value="Update Service" />
                 </div>
             </form>
         </div>
