@@ -9,6 +9,7 @@ import { motion } from 'framer-motion';
 
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
     const { user, logOut } = useAuth();
 
@@ -46,49 +47,70 @@ const Navbar = () => {
             </li>
 
             {user && (
-                <li className="dropdown dropdown-hover dropdown-bottom">
-                    <div tabIndex={0} role="button" className="m-1 flex items-center">
-                        Dashboard <RiArrowDropDownLine size={24} />
+                <li>
+
+                    <div className="relative">
+                        <div
+                            tabIndex={0}
+                            role="button"
+                            className="m-1"
+                            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                        >
+                            <div tabIndex={0} role="button" className="m-1 flex items-center">
+                                Dashboard <RiArrowDropDownLine size={24} />
+                            </div>
+                        </div>
+
+                        {isDropdownOpen && (
+
+                            <ul className="absolute right-0 dropdown-content menu bg-base-100 rounded-box z-10 w-52 p-2 shadow-sm dark:bg-gray-800 dark:text-white">
+                                <li onClick={() => setIsDropdownOpen(false)}>
+                                    <NavLink
+                                        to="/addService"
+                                    >
+                                        Add Service
+                                    </NavLink>
+                                </li>
+                                <li onClick={() => setIsDropdownOpen(false)}>
+                                    <NavLink
+                                        to="/myPostedServices"
+                                    >
+                                        Manage Service
+                                    </NavLink>
+                                </li>
+                                <li onClick={() => setIsDropdownOpen(false)}>
+                                    <NavLink
+                                        to="/bookedServices"
+                                    >
+                                        Booked-Services
+                                    </NavLink>
+                                </li>
+                                <li onClick={() => setIsDropdownOpen(false)}>
+                                    <NavLink
+                                        to="/serviceToDo"
+                                    >
+                                        Service-To-Do
+                                    </NavLink>
+                                </li>
+                            </ul>
+
+                        )}
                     </div>
-                    <ul
-                        tabIndex={0}
-                        className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
-                    >
-                        <li>
-                            <NavLink
-                                to="/addService"
-                            >
-                                Add Service
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink
-                                to="/myPostedServices"
-                            >
-                                Manage Service
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink
-                                to="/bookedServices"
-                            >
-                                Booked-Services
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink
-                                to="/serviceToDo"
-                            >
-                                Service-To-Do
-                            </NavLink>
-                        </li>
-                    </ul>
+
                 </li>
             )}
+
+            <li>
+                <NavLink
+                    to="/about"
+                >
+                    About Us
+                </NavLink>
+            </li>
         </>
     );
     return (
-        <nav className=" border-b  px-4 py-3 dark:bg-gray-800  dark:text-white">
+        <nav className=" border-b  px-4 py-3 bg-amber-50 dark:bg-gray-800  dark:text-white">
             <div className="max-w-7xl mx-auto flex justify-between items-center">
                 {/* Logo */}
                 <div className="flex items-center gap-2 ">

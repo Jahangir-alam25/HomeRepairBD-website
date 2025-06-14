@@ -1,4 +1,4 @@
-import { StrictMode } from 'react'
+import { StrictMode, Suspense } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 
@@ -7,13 +7,20 @@ import { RouterProvider } from 'react-router'
 import { router } from './routes/router.jsx'
 import AuthProvider from './contexts/AuthContext/AuthProvider.jsx'
 import { ToastContainer } from 'react-toastify'
+import Loading from './pages/Loading/Loading.jsx'
+import { HelmetProvider } from 'react-helmet-async'
+import { ThemeProvider } from './contexts/AuthContext/ThemeContext.jsx'
 
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
+ <HelmetProvider>
+ <ThemeProvider>
     <AuthProvider>
-       <RouterProvider router={router} />
+       <Suspense fallback={<Loading />}>
+        <RouterProvider router={router} />
+       </Suspense>
        <ToastContainer></ToastContainer>
     </AuthProvider>
-  </StrictMode>,
+ </ThemeProvider>
+ </HelmetProvider>
 )

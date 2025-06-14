@@ -1,8 +1,7 @@
+
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router";
-
-
 
 const services = [
   {
@@ -43,88 +42,89 @@ const services = [
   },
 ];
 
-
-
-
 const FeaturedSection = () => {
   return (
-   <div>
-     <section className=" py-16 px-4 md:px-12">
-         <div className="text-center mb-12 max-w-3xl mx-auto">
-        <div className="divider mb-3">
-            <h2 className="text-3xl font-bold text-gray-900">
-          Our Features
-        </h2>
-        </div>
-        <p className="text-gray-600 text-lg">
-          Your one-stop solution for trusted and timely home repair services across Bangladesh.
-        </p>
-      </div>
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-        {/* Text Content */}
-        <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-500 to-purple-600 bg-[length:200%_200%]">
-            Reliable Home Repairs, Right When You Need Them
-          </h1>
-          <p className="text-gray-600 mb-6">
-            HomeRepairBD connects you with certified professionals for all types of home maintenance—plumbing, electrical, cleaning, and more. Fast, affordable, and trusted by thousands across Bangladesh.
+    <div className="bg-amber-50 dark:bg-gray-900 transition-colors duration-300">
+      <section className="py-16 px-4 md:px-12">
+        <div className="text-center mb-12 max-w-3xl mx-auto">
+          <div className="divider mb-3">
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
+              Our Features
+            </h2>
+          </div>
+          <p className="text-gray-600 dark:text-gray-300 text-lg">
+            Your one-stop solution for trusted and timely home repair services across Bangladesh.
           </p>
-          <Link to="/services">
-            <button className="bg-linear-65 from-[#911ae3] to-pink-500 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition font-medium">
-            Book a Service Now
-          </button>
-          </Link>
-        </motion.div>
-
-        {/* Image/Illustration */}
-        <motion.div
-          initial={{ opacity: 0, x: 30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center"
-        >
-          <img
-            src="https://i.ibb.co/9mGmTNCc/4322372.jpg"
-            alt="Home Repair Illustration"
-            className="w-full max-w-md mx-auto"
-          />
-        </motion.div>
-      </div>
-    </section>
-
-    <section className=" px-6 md:px-20">
-      <div className="grid md:grid-cols-3 gap-10 items-center">
-        <div className="md:col-span-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <motion.div
-              key={index}
-              className="flex items-start gap-4"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.2, duration: 0.5 }}
-              viewport={{ once: true }}
-            >
-              <img
-                src={service.image}
-                alt={service.title}
-                className="w-16 h-16 rounded-full object-cover"
-              />
-              <div>
-                <h3 className="text-lg font-bold">{service.title}</h3>
-                <p className="text-gray-600 text-sm">{service.description}</p>
-              </div>
-            </motion.div>
-          ))}
         </div>
-      </div>
-    </section>
-   </div>
+
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+          {/* Text Content */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-500 to-purple-600 bg-[length:200%_200%]">
+              Reliable Home Repairs, Right When You Need Them
+            </h1>
+            <p className="text-gray-700 dark:text-gray-300 mt-4 mb-6">
+              HomeRepairBD connects you with certified professionals for all types of home maintenance—plumbing, electrical, cleaning, and more. Fast, affordable, and trusted by thousands across Bangladesh.
+            </p>
+            <Link to="/services">
+              <button className="bg-gradient-to-r from-[#911ae3] to-pink-500 text-white px-6 py-3 rounded-full hover:opacity-90 transition font-medium">
+                Book a Service Now
+              </button>
+            </Link>
+          </motion.div>
+
+          {/* Image/Illustration */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center"
+          >
+            <img
+              src="https://i.ibb.co/9mGmTNCc/4322372.jpg"
+              alt="Home Repair Illustration"
+              className="w-full max-w-md mx-auto"
+            />
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Service Highlights */}
+      <section className="px-6 md:px-20 pb-16">
+        <div className="grid md:grid-cols-3 gap-10 items-center">
+          <div className="md:col-span-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service, index) => (
+              <motion.div
+                key={index}
+                className="flex items-start gap-4 bg-white dark:bg-gray-800 p-4 rounded-lg shadow hover:shadow-md transition"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.2, duration: 0.5 }}
+                viewport={{ once: true }}
+              >
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="w-16 h-16 rounded-full object-cover"
+                />
+                <div>
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-white">{service.title}</h3>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm">
+                    {service.description}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
   );
 };
 

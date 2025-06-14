@@ -15,6 +15,8 @@ import UpdatedService from "../pages/MyPostedService/UpdatedService";
 import BookedServices from "../pages/BookedServices/BookedServices";
 import ServiceToDo from "../pages/ServiceToDo/ServiceToDo";
 import ViewBooking from "../pages/ServiceToDo/ViewBooking";
+import Loading from "../pages/Loading/Loading";
+import AboutUs from "../pages/AboutUS/AboutUs";
 
 export const router = createBrowserRouter([
     {
@@ -32,15 +34,18 @@ export const router = createBrowserRouter([
             {
                 path: '/services',
                 Component: AllService,
+                hydrateFallbackElement: <Loading></Loading>,
                 loader: () => fetch('http://localhost:3000/services')
             },
             {
                 path: '/services/:id',
+                hydrateFallbackElement: <Loading></Loading>,
                 loader: ({ params }) => fetch(`http://localhost:3000/services/${params.id}`),
                 element: <PrivateRoute><ServiceDetails></ServiceDetails></PrivateRoute>
             },
             {
                 path: '/bookingServices/:id',
+                hydrateFallbackElement: <Loading></Loading>,
                 loader: ({ params }) => fetch(`http://localhost:3000/services/${params.id}`),
                 element: <PrivateRoute><BookingForm></BookingForm></PrivateRoute>
             },
@@ -50,6 +55,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/updateService/:id",
+                hydrateFallbackElement: <Loading></Loading>,
                 loader: ({ params }) => fetch(`http://localhost:3000/services/${params.id}`),
                 element: <PrivateRoute><UpdatedService></UpdatedService></PrivateRoute>
             },
@@ -64,8 +70,13 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/bookings/:id',
+                hydrateFallbackElement: <Loading></Loading>,
                 loader: ({ params }) => fetch(`http://localhost:3000/bookings/service/${params.id}`),
                 element: <PrivateRoute><ViewBooking></ViewBooking></PrivateRoute>
+            },
+            {
+                path: '/about',
+                element: <AboutUs />
             }
 
 

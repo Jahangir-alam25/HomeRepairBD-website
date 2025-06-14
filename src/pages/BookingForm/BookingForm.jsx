@@ -7,12 +7,12 @@ import { toast } from 'react-toastify';
 // Reusable readonly input field
 const ReadOnlyInput = ({ label, value }) => (
   <fieldset className="mb-4">
-    <legend className="font-semibold mb-1">{label}</legend>
+    <legend className="font-semibold mb-1 dark:text-gray-200">{label}</legend>
     <input
       type="text"
       value={value}
       readOnly
-      className="input input-bordered w-full bg-gray-100 dark:bg-gray-700 cursor-not-allowed"
+      className="input input-bordered w-full bg-gray-100 dark:bg-gray-700 dark:border-gray-600 dark:text-white cursor-not-allowed"
       aria-readonly="true"
     />
   </fieldset>
@@ -30,7 +30,6 @@ const BookingForm = () => {
 
   const today = new Date().toISOString().split('T')[0];
 
-  // Validate date is not past
   const handleDateChange = (e) => {
     const selectedDate = e.target.value;
     if (selectedDate < today) {
@@ -87,41 +86,42 @@ const BookingForm = () => {
   };
 
   if (!service || !user) {
-    return <div className="p-6 text-red-500">Invalid Booking Request</div>;
+    return <div className="p-6 text-red-500 dark:text-red-400">Invalid Booking Request</div>;
   }
 
   return (
-    <div className="max-w-7xl mx-auto my-10 px-4 flex flex-col lg:flex-row gap-10">
-      {/* Booking Summary Sidebar - visible on lg+ */}
-      <aside className="hidden lg:block lg:w-1/3 h-fit sticky top-20 bg-base-100 border border-base-300 rounded-lg p-6 shadow-md">
-        <h3 className="text-xl font-bold mb-4 text-purple-600">Booking Summary</h3>
+    <div className='bg-amber-50 dark:bg-gray-800 min-h-screen py-10'>
+      <div className="max-w-7xl mx-auto  px-4 flex flex-col lg:flex-row gap-10">
+      {/* Sidebar */}
+      <aside className="hidden lg:block lg:w-1/3 h-fit sticky top-20 bg-base-100 dark:bg-gray-900 border border-base-300 dark:border-gray-700 rounded-lg p-6 shadow-md">
+        <h3 className="text-xl font-bold mb-4 text-purple-600 dark:text-purple-400">Booking Summary</h3>
         <div className="mb-3">
           <img
             src={service.image}
             alt={service.name}
             className="rounded-lg w-full h-40 object-cover mb-4"
           />
-          <p className="font-semibold text-lg">{service.name}</p>
-          <p className="text-gray-600 mt-1">Provider: {service.providerName}</p>
+          <p className="font-semibold text-lg dark:text-white">{service.name}</p>
+          <p className="text-gray-600 dark:text-gray-300 mt-1">Provider: {service.providerName}</p>
           <p className="text-green-600 font-semibold mt-2 text-lg">${parseFloat(service.price).toFixed(2)}</p>
           <span className="badge badge-warning mt-2">Status: Pending</span>
         </div>
-        <p className="text-sm text-gray-500">
+        <p className="text-sm text-gray-500 dark:text-gray-400">
           You can safely book your preferred service. After booking, the provider will contact you to confirm details.
         </p>
       </aside>
 
-      {/* Main Form */}
+      {/* Form */}
       <form
         onSubmit={handleSubmit}
-        className="lg:w-2/3 bg-white shadow-lg border border-base-300 rounded-xl p-8 space-y-8"
+        className="lg:w-2/3 bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100 shadow-lg border border-base-300 dark:border-gray-700 rounded-xl p-8 space-y-8"
         aria-label="Service Booking Form"
       >
-        <h2 className="text-3xl font-bold text-center text-purple-600 mb-6">Service Booking Form</h2>
+        <h2 className="text-3xl font-bold text-center text-purple-600 dark:text-purple-400 mb-6">Service Booking Form</h2>
 
         {/* Service Info */}
-        <fieldset className="border border-base-300 rounded-lg p-4">
-          <legend className="font-semibold px-2 text-lg">Service Information</legend>
+        <fieldset className="border border-base-300 dark:border-gray-700 rounded-lg p-4">
+          <legend className="font-semibold px-2 text-lg dark:text-gray-200">Service Information</legend>
           <ReadOnlyInput label="Service ID" value={service._id} />
           <ReadOnlyInput label="Service Name" value={service.name} />
           <ReadOnlyInput label="Service Image URL" value={service.image} />
@@ -130,24 +130,24 @@ const BookingForm = () => {
         </fieldset>
 
         {/* User Info */}
-        <fieldset className="border border-base-300 rounded-lg p-4">
-          <legend className="font-semibold px-2 text-lg">Your Information</legend>
+        <fieldset className="border border-base-300 dark:border-gray-700 rounded-lg p-4">
+          <legend className="font-semibold px-2 text-lg dark:text-gray-200">Your Information</legend>
           <ReadOnlyInput label="Your Name" value={user.displayName} />
           <ReadOnlyInput label="Your Email" value={user.email} />
         </fieldset>
 
         {/* Booking Details */}
-        <fieldset className="border border-base-300 rounded-lg p-4 space-y-4">
-          <legend className="font-semibold px-2 text-lg">Booking Details</legend>
+        <fieldset className="border border-base-300 dark:border-gray-700 rounded-lg p-4 space-y-4">
+          <legend className="font-semibold px-2 text-lg dark:text-gray-200">Booking Details</legend>
 
           <div>
-            <label htmlFor="bookingDate" className="label font-medium">
+            <label htmlFor="bookingDate" className="label font-medium dark:text-gray-300">
               Select Booking Date <span className="text-red-500">*</span>
             </label>
             <input
               type="date"
               id="bookingDate"
-              className={`input input-bordered w-full ${dateError ? 'input-error' : ''}`}
+              className={`input input-bordered w-full dark:bg-gray-800 dark:border-gray-600 dark:text-white ${dateError ? 'input-error' : ''}`}
               min={today}
               value={date}
               onChange={handleDateChange}
@@ -162,12 +162,12 @@ const BookingForm = () => {
           </div>
 
           <div>
-            <label htmlFor="instructions" className="label font-medium">
+            <label htmlFor="instructions" className="label font-medium dark:text-gray-300">
               Special Instructions / Address
             </label>
             <textarea
               id="instructions"
-              className="textarea textarea-bordered w-full"
+              className="textarea textarea-bordered w-full dark:bg-gray-800 dark:border-gray-600 dark:text-white"
               rows={4}
               placeholder="Provide any special instructions or your address"
               value={instruction}
@@ -187,9 +187,8 @@ const BookingForm = () => {
         </button>
       </form>
     </div>
+    </div>
   );
 };
 
 export default BookingForm;
-
-

@@ -5,6 +5,8 @@ import useAuth from '../../hooks/useAuth';
 
 import { servicesCreatedByPromise } from '../../api/servicesApi';
 import BookingList from './BookingList';
+import Loading from '../Loading/Loading';
+import { Helmet } from 'react-helmet-async';
 
 const ServiceToDo = () => {
 
@@ -12,10 +14,11 @@ const ServiceToDo = () => {
     
     
     return (
-       <div>
-                 <Suspense fallback={<div>Loading...</div>}>
+       <div className='bg-amber-50 dark:bg-gray-800 dark:text-white p-4 mx-auto'>
+        <Helmet><title>ServicesActivity - HomeRepairBD</title></Helmet>
+                 <Suspense fallback={<Loading></Loading>}>
                       <BookingList
-                          servicesCreatedByPromise={servicesCreatedByPromise(user.email)}
+                          servicesCreatedByPromise={servicesCreatedByPromise(user.email, user.accessToken)}
                       ></BookingList>
                   </Suspense>
               </div>

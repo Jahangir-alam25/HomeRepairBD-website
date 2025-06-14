@@ -4,6 +4,7 @@ import AllServiceCard from '../AddServise/AllServiceCard';
 import { motion } from 'framer-motion';
 import Lottie from 'lottie-react';
 import noData from '../../assets/lotties/notFound.json';
+import { Helmet } from 'react-helmet-async';
 
 const AllService = () => {
   const servicesData = useLoaderData()
@@ -23,7 +24,10 @@ const AllService = () => {
   };
 
   return (
-    <div className='max-w-6xl mx-auto px-5 mb-12'>
+    <div className=' bg-amber-50 dark:bg-gray-800 px-5 pb-12'>
+      <Helmet>
+        <title>All Services - HomeRepairBD</title>
+      </Helmet>
       {/* Search Box */}
       <form
         onSubmit={(e) => {
@@ -31,7 +35,7 @@ const AllService = () => {
           setSearchText("");
         }}
       >
-        <div className="flex flex-col sm:flex-row justify-center items-center my-10">
+        <div className="flex flex-col sm:flex-row justify-center items-center py-10">
           <input
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
@@ -64,8 +68,8 @@ const AllService = () => {
         </div>
       ) :
         (<div className="text-center my-10">
-          <h1 className="text-4xl font-bold text-gray-800 mb-4">All Services</h1>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <h1 className="text-4xl font-bold dark:text-white text-gray-800 mb-4">All Services</h1>
+          <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Browse through all available services offered by trusted providers in your area.
             From home cleaning to expert consultations, find the help you need, when you need it.
           </p>

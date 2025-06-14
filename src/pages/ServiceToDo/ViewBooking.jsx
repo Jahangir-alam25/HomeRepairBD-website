@@ -1,13 +1,12 @@
 
+
 import React from 'react';
 import { useLoaderData } from 'react-router';
 import Swal from 'sweetalert2';
 
-
 const ViewBooking = () => {
   const data = useLoaderData();
 
-  // Handle status update
   const handleStatusUpdate = (e, id) => {
     const status = e.target.value;
 
@@ -30,7 +29,6 @@ const ViewBooking = () => {
       });
   };
 
-  // Calculate days remaining
   const getRemainingDays = (dateStr) => {
     const today = new Date();
     const targetDate = new Date(dateStr);
@@ -39,15 +37,18 @@ const ViewBooking = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 max-w-6xl my-10">
-      <h1 className="text-3xl font-bold mb-6 text-gray-800">Booking Overview</h1>
+    <div className='bg-amber-50 dark:bg-gray-800 min-h-screen'>
+      <div className="container mx-auto px-4 max-w-6xl py-10 ">
+      <h1 className="text-3xl font-bold mb-6 text-gray-800 dark:text-white">Booking Overview</h1>
 
       {data.length === 0 ? (
-        <p className="text-center text-gray-500 text-lg py-10">No bookings available yet.</p>
+        <p className="text-center text-gray-500 dark:text-gray-300 text-lg py-10">
+          No bookings available yet.
+        </p>
       ) : (
-        <div className="overflow-x-auto bg-white rounded-lg shadow">
+        <div className="overflow-x-auto bg-white dark:bg-gray-800 rounded-lg shadow">
           <table className="table w-full">
-            <thead className="bg-gray-100 text-gray-700 text-sm uppercase">
+            <thead className="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 text-sm uppercase">
               <tr>
                 <th>No.</th>
                 <th>Client</th>
@@ -60,27 +61,29 @@ const ViewBooking = () => {
 
             <tbody>
               {data.map((client, index) => (
-                <tr key={client._id} className="hover:bg-gray-50 transition-all">
-                  <td className="font-medium">{index + 1}</td>
+                <tr key={client._id} className="hover:bg-gray-50 dark:hover:bg-gray-700 transition-all">
+                  <td className="font-medium dark:text-white">{index + 1}</td>
 
                   <td>
-                    <div className="font-semibold text-gray-800">{client.userName}</div>
-                    <p className="text-sm text-gray-500">{client.instruction}</p>
+                    <div className="font-semibold text-gray-800 dark:text-white">{client.userName}</div>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">{client.instruction}</p>
                   </td>
 
-                  <td className="text-gray-600">{client.userEmail}</td>
-                  <td className="text-gray-600">{client.date}</td>
+                  <td className="text-gray-600 dark:text-gray-300">{client.userEmail}</td>
+                  <td className="text-gray-600 dark:text-gray-300">{client.date}</td>
 
-                  <td className="text-blue-600 font-medium">{getRemainingDays(client.date)}</td>
+                  <td className="text-blue-600 dark:text-blue-400 font-medium">
+                    {getRemainingDays(client.date)}
+                  </td>
 
                   <td>
                     <select
                       onChange={(e) => handleStatusUpdate(e, client._id)}
                       defaultValue={client.serviceStatus}
-                      className="select select-bordered select-sm w-36 text-sm"
+                      className="select select-bordered select-sm w-36 text-sm dark:bg-gray-900 dark:text-white dark:border-gray-600"
                     >
                       <option disabled>Update Status</option>
-                      <option value="pending">Pending</option>
+                      <option value="Pending">Pending</option>
                       <option value="working">Working</option>
                       <option value="completed">Completed</option>
                     </select>
@@ -92,9 +95,11 @@ const ViewBooking = () => {
         </div>
       )}
     </div>
+    </div>
   );
 };
 
 export default ViewBooking;
+
 
 

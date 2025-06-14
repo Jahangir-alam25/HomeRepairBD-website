@@ -24,7 +24,7 @@ const SocialLogin = ({ from }) => {
     return (
         <div>
             <div className="divider">OR</div>
-            <button onClick={handleGoogleSignIn} type="button" className="btn btn-outline btn-block btn-primary">
+            <button onClick={handleGoogleSignIn} type="button" className="btn btn-outline btn-block bg-linear-65 from-[#911ae3] to-pink-500 ">
                 <FcGoogle size={20}></FcGoogle>
                 Continue with Google
             </button>

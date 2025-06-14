@@ -1,17 +1,24 @@
 import React, { Suspense } from 'react';
 import useAuth from '../../hooks/useAuth';
 import { bookingsCreatedByPromise } from '../../api/bookingsApi';
-import BookingList from './BookingList';
+import BookedServicesList from './BookedServicesList';
+import Loading from '../Loading/Loading';
+import { Helmet } from 'react-helmet-async';
+
 
 const BookedServices = () => {
     const {user} = useAuth();
    
     return (
         <div>
-           <Suspense fallback={<div>Loading...</div>}>
-                <BookingList
+            <Helmet>
+                <title>MyBookings - HomeRepairBD</title>
+                
+            </Helmet>
+           <Suspense fallback={<Loading></Loading>}>
+                <BookedServicesList
                     bookingsCreatedByPromise={bookingsCreatedByPromise(user.email, user.accessToken)}
-                ></BookingList>
+                ></BookedServicesList>
             </Suspense>
         </div>
     );
