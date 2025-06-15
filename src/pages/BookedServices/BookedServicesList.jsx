@@ -30,7 +30,7 @@ const BookedServicesList = ({ bookingsCreatedByPromise }) => {
       confirmButtonText: "Yes, cancel it!"
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/bookings/${_id}`, {
+        fetch(`https://a11-service-web-application-server.vercel.app/bookings/${_id}`, {
           method: 'DELETE'
         })
           .then(res => res.json())

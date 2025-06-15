@@ -10,7 +10,7 @@ const ViewBooking = () => {
   const handleStatusUpdate = (e, id) => {
     const status = e.target.value;
 
-    fetch(`http://localhost:3000/bookings/${id}`, {
+    fetch(`https://a11-service-web-application-server.vercel.app/bookings/${id}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ status }),

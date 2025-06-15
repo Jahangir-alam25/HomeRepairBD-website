@@ -9,7 +9,7 @@ const packages = [
     icon: <FaTools className="text-6xl text-white" />,
     title: 'Trusted Home Repair Services in Bangladesh',
     description: 'From plumbing to electrical, HomeRepairBD delivers expert solutions right to your door—fast, reliable, and affordable.',
-    image: 'https://i.ibb.co/3YscPSzP/aaron-huber-G7s-E2-S4-Lab4-unsplash.jpg'
+    image: 'https://i.ibb.co/qLgqk52q/service22.jpg'
   },
   {
     icon: <FaPaintRoller className="text-6xl text-white" />,
@@ -60,7 +60,7 @@ const transition = {
       <div className="absolute inset-0 bg-opacity-60 z-0" />
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-center gap-5 px-0 sm:px-20">
+      <div className="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-center gap-5 px-0 sm:px-20">
         <AnimatePresence mode="wait">
           <motion.div
             key={`text-${current}`}

@@ -27,7 +27,7 @@ const AddService = () => {
 
         console.log(serviceData);
 
-        fetch('http://localhost:3000/services', {
+        fetch('https://a11-service-web-application-server.vercel.app/services', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

@@ -63,7 +63,7 @@ const BookingForm = () => {
     };
 
     try {
-      const res = await fetch('http://localhost:3000/bookings', {
+      const res = await fetch('https://a11-service-web-application-server.vercel.app/bookings', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(bookingData),
@@ -125,6 +125,7 @@ const BookingForm = () => {
           <ReadOnlyInput label="Service ID" value={service._id} />
           <ReadOnlyInput label="Service Name" value={service.name} />
           <ReadOnlyInput label="Service Image URL" value={service.image} />
+          <ReadOnlyInput label="Service Price" value={service.price} />
           <ReadOnlyInput label="Provider Name" value={service.providerName} />
           <ReadOnlyInput label="Provider Email" value={service.providerEmail} />
         </fieldset>

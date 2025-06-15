@@ -1,7 +1,6 @@
 
 import React from 'react';
 import {
-  FaMapMarkerAlt,
   FaCheckCircle,
   FaClock,
   FaTools,
@@ -18,7 +17,6 @@ const ServiceDetails = () => {
     description,
     price,
     providerName,
-    area,
     providerImage,
   } = useLoaderData();
 
@@ -61,10 +59,10 @@ const ServiceDetails = () => {
 
           <div className="mt-6">
             <h2 className="text-3xl font-bold mb-3">{name}</h2>
-            <p className="text-gray-500 dark:text-gray-400 text-sm flex items-center gap-2 mb-2">
+            {/* <p className="text-gray-500 dark:text-gray-400 text-sm flex items-center gap-2 mb-2">
               <FaMapMarkerAlt />
               {area}
-            </p>
+            </p> */}
 
             <p className="text-gray-700 dark:text-gray-300 mb-4">{description}</p>
 

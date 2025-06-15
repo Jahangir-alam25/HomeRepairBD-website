@@ -1,5 +1,5 @@
 export const bookingsCreatedByPromise = (email, accessToken) => {
-    return fetch(`http://localhost:3000/bookings?email=${email}`, {
+    return fetch(`https://a11-service-web-application-server.vercel.app/bookings?email=${email}`, {
         headers: {
             'Authorization': `Bearer ${accessToken}`
         }

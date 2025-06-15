@@ -1,12 +1,59 @@
-# React + Vite
+# HomeRepairBD 🔧🏠  
+**Live Site URL:** [https://home-repair-bd.netlify.app/](https://home-repair-bd.netlify.app/)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Assignment Category:  
+**assignment_category_02**
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠️ About HomeRepairBD
 
-## Expanding the ESLint configuration
+HomeRepairBD is a professional home service solution platform in Bangladesh. Whether it's plumbing, electrical, painting, or appliance repair – we bring trusted experts to your doorstep.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🌟 Key Features
+
+- ✅ **Trusted Service Providers**  
+  All professionals are verified and experienced to ensure quality service delivery.
+
+- 📍 **Location-Based Services**  
+  Users can find and book services available specifically in their area.
+
+- 📅 **Smart Booking System**  
+  View, book, and manage services with ease from a clean and responsive dashboard.
+
+- ⭐ **User Reviews & Ratings**  
+  Real user feedback helps customers make informed decisions.
+
+- 🔐 **Secure Authentication**  
+  Integrated with Firebase Auth for secure sign-in and user data protection.
+
+- 📷 **Service Preview**  
+  Each service listing includes images and descriptions to set clear expectations.
+
+---
+
+
+## ⚙️ Technologies & Libraries Used
+
+- **ReactJS** – Frontend framework  
+- **React Router DOM** – Client-side routing  
+- **Tailwind CSS + DaisyUI** – Utility-first styling and UI components  
+- **Firebase** – Hosting, authentication, and database  
+- **SweetAlert2** – Stylish alerts and modals  
+- **React Toastify** – Toast notifications  
+- **React Icons & Lucide React** – Icon libraries for modern, expressive icons  
+- **Lottie React** – For lightweight and smooth animations  
+- **Framer Motion** – Advanced motion and transition animations
+
+---
+
+💡 Designed to make home services simpler, smarter, and more reliable — one home at a time.
+
+---
+
+Thank you for checking out **HomeRepairBD**! ❤️  
+
+
+

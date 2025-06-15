@@ -35,18 +35,18 @@ export const router = createBrowserRouter([
                 path: '/services',
                 Component: AllService,
                 hydrateFallbackElement: <Loading></Loading>,
-                loader: () => fetch('http://localhost:3000/services')
+                loader: () => fetch('https://a11-service-web-application-server.vercel.app/services')
             },
             {
                 path: '/services/:id',
                 hydrateFallbackElement: <Loading></Loading>,
-                loader: ({ params }) => fetch(`http://localhost:3000/services/${params.id}`),
+                loader: ({ params }) => fetch(`https://a11-service-web-application-server.vercel.app/services/${params.id}`),
                 element: <PrivateRoute><ServiceDetails></ServiceDetails></PrivateRoute>
             },
             {
                 path: '/bookingServices/:id',
                 hydrateFallbackElement: <Loading></Loading>,
-                loader: ({ params }) => fetch(`http://localhost:3000/services/${params.id}`),
+                loader: ({ params }) => fetch(`https://a11-service-web-application-server.vercel.app/services/${params.id}`),
                 element: <PrivateRoute><BookingForm></BookingForm></PrivateRoute>
             },
             {
@@ -56,7 +56,7 @@ export const router = createBrowserRouter([
             {
                 path: "/updateService/:id",
                 hydrateFallbackElement: <Loading></Loading>,
-                loader: ({ params }) => fetch(`http://localhost:3000/services/${params.id}`),
+                loader: ({ params }) => fetch(`https://a11-service-web-application-server.vercel.app/services/${params.id}`),
                 element: <PrivateRoute><UpdatedService></UpdatedService></PrivateRoute>
             },
             {
@@ -71,7 +71,7 @@ export const router = createBrowserRouter([
             {
                 path: '/bookings/:id',
                 hydrateFallbackElement: <Loading></Loading>,
-                loader: ({ params }) => fetch(`http://localhost:3000/bookings/service/${params.id}`),
+                loader: ({ params }) => fetch(`https://a11-service-web-application-server.vercel.app/bookings/service/${params.id}`),
                 element: <PrivateRoute><ViewBooking></ViewBooking></PrivateRoute>
             },
             {

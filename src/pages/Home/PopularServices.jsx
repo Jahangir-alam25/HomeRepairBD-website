@@ -8,7 +8,7 @@ const PopularServices = () => {
 
   // FIX: Removed `services` from dependency array to avoid infinite loop
   useEffect(() => {
-    fetch('http://localhost:3000/services')
+    fetch('https://a11-service-web-application-server.vercel.app/services')
       .then(res => res.json())
       .then(data => setServices(data));
   }, []);
@@ -42,16 +42,17 @@ const PopularServices = () => {
                 : service.description}
             </p>
             <div className="flex items-center justify-between mt-4">
-              <div className="flex items-center gap-2">
-                <img
-                  src={service.providerImage}
-                  alt={service.providerName}
-                  className="w-8 h-8 rounded-full"
-                />
-                <span className="text-sm font-medium text-gray-800 dark:text-gray-200">
-                  {service.providerName}
-                </span>
-              </div>
+              <div className="flex items-center gap-x-4 mt-2 border dark:border-gray-600 p-2 rounded-lg">
+                        <img
+                            src={service.providerImage}
+                            alt={service.providerName}
+                            className="w-12 h-12 rounded-full"
+                        />
+                        <div>
+                            <p className="font-medium text-gray-800 dark:text-white">{service.providerName}</p>
+                            <p className="text-sm text-gray-500 dark:text-gray-400">Author</p>
+                        </div>
+                    </div>
               <span className="font-semibold text-gray-800 dark:text-gray-200">
                 Price: ${service.price}
               </span>
