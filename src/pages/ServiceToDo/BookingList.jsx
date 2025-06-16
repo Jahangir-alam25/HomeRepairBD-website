@@ -18,7 +18,7 @@ const BookingList = ({ servicesCreatedByPromise }) => {
   const totalServices = services.length;
 
   return (
-    <div className="container mx-auto my-10 max-w-6xl px-4">
+    <div className="w-11/12 mx-auto my-10  px-4">
       {/* Header */}
       <div className="mb-8">
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
@@ -53,8 +53,9 @@ const BookingList = ({ servicesCreatedByPromise }) => {
       {filteredServices.length === 0 ? (
         <div className="text-center text-gray-500 dark:text-gray-300 my-10">
           <h2 className="text-2xl font-semibold">No services found</h2>
-          <p>Please try a different search term.</p>
+          <p>You haven’t provided any services yet.</p>
           <Lottie animationData={noData} loop={true} className="w-48 h-48 mx-auto" />
+          <Link to="/addService" className="btn bg-gradient-to-r from-purple-500 to-indigo-500 mt-4 text-white">Go to create a Service</Link>
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

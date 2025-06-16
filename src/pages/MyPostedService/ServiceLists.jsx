@@ -1,10 +1,12 @@
- 
 
+
+import Lottie from 'lottie-react';
 import React, { use, useState } from 'react';
 import { FaMapMarkerAlt } from 'react-icons/fa';
 import { MdDelete, MdOutlineEdit } from 'react-icons/md';
 import { Link } from 'react-router';
 import Swal from 'sweetalert2';
+import noProvidedServices from '../../assets/lotties/notFound.json';
 
 const ServiceLists = ({ servicesCreatedByPromise }) => {
     const initialServices = use(servicesCreatedByPromise);
@@ -41,7 +43,7 @@ const ServiceLists = ({ servicesCreatedByPromise }) => {
     };
 
     return (
-        <div className='container mx-auto my-10 max-w-6xl px-4'>
+        <div className=' w-11/12 mx-auto my-10 '>
             <h1 className="text-4xl font-bold mb-6 text-gray-900 dark:text-white">My Posted Services</h1>
 
             {services.length > 0 ? (
@@ -74,8 +76,8 @@ const ServiceLists = ({ servicesCreatedByPromise }) => {
                             {/* Service Description */}
                             <p className="text-gray-600 dark:text-gray-300 mt-2">{service.description}</p>
 
-                            <div className="flex items-center gap-x-4 px-6 pt-4">
-                                <div className="flex items-center gap-x-4 mt-2 border dark:border-white p-2 rounded-lg">
+                            <div className="flex flex-col lg:flex-row items-center gap-4 px-6 pt-4">
+                                <div className="flex items-center gap-x-2 mt-2 border dark:border-white p-2 rounded-lg">
                                     <img src={service.providerImage} alt={service.providerName} className="w-12 h-12 rounded-full" />
                                     <div>
                                         <p className="font-medium">{service.providerName}</p>
@@ -105,7 +107,13 @@ const ServiceLists = ({ servicesCreatedByPromise }) => {
                     </div>
                 ))
             ) : (
-                <p className="text-gray-600 dark:text-gray-300">No services found</p>
+                <div className="text-center text-gray-500 dark:text-gray-300">
+                    <div>
+                        <Lottie loop={true} animationData={noProvidedServices} className="w-48 mx-auto" />
+                    </div>
+                    <p className="text-xl">You haven’t provided any services yet.</p>
+                    <Link to="/addService" className="btn bg-gradient-to-r from-purple-500 to-indigo-500 mt-4 text-white">Go to create a Service</Link>
+                </div>
             )}
         </div>
     );

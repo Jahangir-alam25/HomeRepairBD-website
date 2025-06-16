@@ -44,8 +44,8 @@ const services = [
 
 const FeaturedSection = () => {
   return (
-    <div className="bg-amber-50 dark:bg-gray-900 transition-colors duration-300">
-      <section className="py-16 px-4 md:px-12">
+    <div className="bg-amber-50 w-11/12 mx-auto dark:bg-gray-900 transition-colors duration-300">
+      <section className="py-16 ">
         <div className="text-center mb-12 max-w-3xl mx-auto">
           <div className="divider mb-3">
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
@@ -57,7 +57,7 @@ const FeaturedSection = () => {
           </p>
         </div>
 
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        <div className=" grid grid-cols-1 md:grid-cols-2 gap-10 items-center justify-between">
           {/* Text Content */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -89,14 +89,14 @@ const FeaturedSection = () => {
             <img
               src="https://i.ibb.co/9mGmTNCc/4322372.jpg"
               alt="Home Repair Illustration"
-              className="w-full max-w-md mx-auto"
+              className="w-full max-w-md mx-auto rounded-lg shadow-lg transition-transform transform hover:scale-105"
             />
           </motion.div>
         </div>
       </section>
 
       {/* Service Highlights */}
-      <section className="px-6 md:px-20 pb-16">
+      <section className=" pb-16">
         <div className="grid md:grid-cols-3 gap-10 items-center">
           <div className="md:col-span-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
@@ -129,3 +129,7 @@ const FeaturedSection = () => {
 };
 
 export default FeaturedSection;
+
+
+
+

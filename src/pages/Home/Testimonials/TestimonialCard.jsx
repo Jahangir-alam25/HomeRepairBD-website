@@ -10,7 +10,7 @@ const TestimonialCard = ({ item }) => {
             initial={{ x: -1000 }}
             animate={{ x: [-1000, 0] }}
             transition={{ duration: 5 }}
-            className="max-w-sm mx-auto rounded-xl shadow-lg p-4 text-center border border-purple-300 dark:border-gray-700 bg-gradient-to-b from-purple-300 to-white dark:from-gray-700 dark:to-gray-900 transition-colors duration-300"
+            className=" mx-auto rounded-xl shadow-lg p-4 text-center border border-purple-300 dark:border-gray-700 bg-gradient-to-b from-purple-300 to-white dark:from-gray-700 dark:to-gray-900 transition-colors duration-300"
         >
             {/* Logo */}
             <div className="flex justify-start mb-2">

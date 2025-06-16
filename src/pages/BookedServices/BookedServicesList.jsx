@@ -57,7 +57,8 @@ const BookedServicesList = ({ bookingsCreatedByPromise }) => {
   };
 
   return (
-    <div className="p-4 sm:p-12 max-w-7xl mx-auto bg-amber-50 dark:bg-gray-800 dark:text-white min-h-screen">
+    <div className='bg-amber-50 dark:bg-gray-800 dark:text-white'>
+      <div className="py-4 sm:py-12 w-11/12 mx-auto   min-h-screen">
       {/* Title and Description */}
       <div className="mb-10 text-center">
         <h1 className="text-4xl font-bold mb-2 text-purple-600">Your Bookings</h1>
@@ -159,6 +160,7 @@ const BookedServicesList = ({ bookingsCreatedByPromise }) => {
           )}
         </div>
       )}
+    </div>
     </div>
   );
 };

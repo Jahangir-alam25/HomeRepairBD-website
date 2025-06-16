@@ -14,7 +14,7 @@ const PopularServices = () => {
   }, []);
 
   return (
-    <section className="max-w-6xl mx-auto px-4 py-8 bg-amber-50 dark:bg-gray-800 transition-colors duration-300">
+    <section className="w-11/12 mx-auto px-4 py-8 bg-amber-50 dark:bg-gray-800 transition-colors duration-300">
       <div className="mb-6">
         <h2 className="text-3xl font-bold mb-3 text-gray-800 dark:text-white">Popular Services</h2>
         <p className="text-gray-600 dark:text-gray-300">

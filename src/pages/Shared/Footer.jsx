@@ -6,8 +6,8 @@ import { motion } from 'framer-motion';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white py-10 px-5 md:px-10 lg:px-20">
-      <div className="max-w-7xl mx-auto grid gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+    <footer className="bg-gray-900 text-white py-10  ">
+      <div className=" w-11/12 mx-auto grid gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
 
         {/* About with Logo */}
         <div>

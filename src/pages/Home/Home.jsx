@@ -5,6 +5,7 @@ import Testimonials from './Testimonials/Testimonials';
 import WhyChoose from './WhyChoose/WhyChoose';
 import FeaturedSection from './FeaturedSection';
 import { Helmet } from 'react-helmet-async';
+import PremiumClients from './PremiumClients';
 
 
 
@@ -21,6 +22,7 @@ const Home = () => {
             <WhyChoose></WhyChoose>
              
             <Testimonials></Testimonials>
+            <PremiumClients></PremiumClients>
         </div>
     );
 };

@@ -63,7 +63,7 @@ const Navbar = () => {
 
                         {isDropdownOpen && (
 
-                            <ul className="absolute right-0 dropdown-content menu bg-base-100 rounded-box z-10 w-52 p-2 shadow-sm dark:bg-gray-800 dark:text-white">
+                            <ul className="absolute right-20 top-14 dropdown-content menu bg-base-100 rounded-box z-50 w-52 p-2 shadow-sm dark:bg-gray-800 dark:text-white">
                                 <li onClick={() => setIsDropdownOpen(false)}>
                                     <NavLink
                                         to="/addService"
@@ -110,12 +110,12 @@ const Navbar = () => {
         </>
     );
     return (
-        <nav className=" border-b  px-4 py-3 bg-amber-50 dark:bg-gray-800  dark:text-white">
-            <div className="max-w-7xl mx-auto flex justify-between items-center">
+        <nav className=" border-b  py-3 bg-amber-50 dark:bg-gray-800  dark:text-white">
+            <div className="w-11/12 mx-auto flex justify-between items-center">
                 {/* Logo */}
                 <div className="flex items-center gap-2 ">
                     <Link to='/'>
-                    <img src="https://i.ibb.co/GvH5Nmzf/mortgage.png" alt="logo" className="h-12 w-12" />
+                        <img src="https://i.ibb.co/GvH5Nmzf/mortgage.png" alt="logo" className="h-12 w-12" />
                     </Link>
                     <motion.h1
                         animate={{
@@ -139,7 +139,7 @@ const Navbar = () => {
                         {links}
                     </ul>
                 </div>
-                <div className="hidden md:flex items-center gap-6">
+                <div className="hidden lg:flex items-center gap-6">
                     {user ? (
                         <div className="flex items-center gap-3">
                             <div className="relative group">
@@ -148,7 +148,7 @@ const Navbar = () => {
                                     alt="Profile"
                                     className="w-8 h-8 rounded-full cursor-pointer"
                                 />
-                                <span className="absolute top-8 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition">
+                                <span className="absolute z-50 top-8 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition">
                                     {user.displayName}
                                 </span>
                             </div>
@@ -169,7 +169,7 @@ const Navbar = () => {
                 </div>
 
                 {/* Mobile Menu Button */}
-                <div className="md:hidden">
+                <div className="lg:hidden">
                     <button onClick={() => setMenuOpen(!menuOpen)}>
                         {menuOpen ? <X /> : <Menu />}
                     </button>
@@ -178,41 +178,44 @@ const Navbar = () => {
 
             {/* Mobile Menu */}
             {menuOpen && (
-                <div className="md:hidden mt-4 space-y-2">
-                    <div className="flex gap-3 justify-between">
-                        <div>
-                            <ul>
-                                {links}
-                            </ul>
+                <div className='absolute right-0 dropdown-content menu bg-base-100 rounded-box z-50 w-60 p-2 shadow-sm dark:bg-gray-800 dark:text-white'>
+                    <div className="lg:hidden mt-4 space-y-2">
+                        <div className="flex gap-3 justify-between">
+                            <div>
+                                <ThemeToggleBTN></ThemeToggleBTN>
+                            </div>
+                            <div className="flex items-start gap-3">
+
+                                <ul>
+                                    {links}
+                                </ul>
+                            </div>
                         </div>
-                        <div className="flex items-start gap-3">
-                            <ThemeToggleBTN></ThemeToggleBTN>
-                        </div>
+
+                        {user ? (
+                            <div className="flex items-center gap-3 px-3">
+                                <img
+                                    src={`${user.photoURL ? user.photoURL : ''}`}
+                                    alt="Profile"
+                                    className="w-8 h-8 rounded-full"
+                                />
+                                <span className="text-sm">{user.username}</span>
+                                <button onClick={handleLogOut} className="btn px-10 bg-linear-65 from-[#911ae3] to-pink-500 text-white hover:underline ml-auto">
+                                    Logout
+                                </button>
+                            </div>
+                        ) : (
+                            <div className=" gap-3 flex justify-between ">
+                                <Link to="/auth/register" className="bg-linear-65 from-[#911ae3] to-pink-500 btn-block text-white text-center py-2 rounded  text-sm">
+                                    Sign Up
+                                </Link>
+                                <Link to="/auth/login" className="bg-linear-65 from-[#911ae3] to-pink-500 btn-block text-white text-center py-2 rounded  text-sm">
+                                    Login
+                                </Link>
+                            </div>
+
+                        )}
                     </div>
-
-                    {user ? (
-                        <div className="flex items-center gap-3 px-3">
-                            <img
-                                src={`${user.photoURL ? user.photoURL : ''}`}
-                                alt="Profile"
-                                className="w-8 h-8 rounded-full"
-                            />
-                            <span className="text-sm">{user.username}</span>
-                            <button onClick={handleLogOut} className="btn px-10 bg-linear-65 from-[#911ae3] to-pink-500 text-white hover:underline ml-auto">
-                                Logout
-                            </button>
-                        </div>
-                    ) : (
-                        <div className=" gap-3 flex justify-between ">
-                            <Link to="/auth/register" className="bg-linear-65 from-[#911ae3] to-pink-500 btn-block text-white text-center py-2 rounded  text-sm">
-                                Sign Up
-                            </Link>
-                            <Link to="/auth/login" className="bg-linear-65 from-[#911ae3] to-pink-500 btn-block text-white text-center py-2 rounded  text-sm">
-                                Login
-                            </Link>
-                        </div>
-
-                    )}
                 </div>
             )}
         </nav>

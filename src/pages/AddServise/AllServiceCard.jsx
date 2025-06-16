@@ -5,7 +5,7 @@ import { FaMapMarkerAlt } from "react-icons/fa";
 
 const AllServiceCard = ({ service }) => {
     return (
-        <div className="max-w-6xl mx-auto flex flex-col lg:flex-row md:flex-row gap-5 bg-white dark:bg-gray-900 shadow-md dark:shadow-lg rounded-xl overflow-hidden my-4 p-4 transition-colors duration-300">
+        <div className="w-11/12 mx-auto flex flex-col lg:flex-row md:flex-row gap-5 bg-white dark:bg-gray-900 shadow-md dark:shadow-lg rounded-xl overflow-hidden my-4 p-4 transition-colors duration-300">
             {/* Service Image */}
             <div className='flex-1 overflow-hidden rounded-md'>
                 <img
@@ -36,7 +36,7 @@ const AllServiceCard = ({ service }) => {
                         : service.description}
                 </p>
 
-                <div className="flex items-center gap-x-4 px-6 pt-4">
+                <div className="flex flex-col lg:flex-row items-center gap-4 px-6 pt-4">
                     {/* Provider Info */}
                     <div className="flex items-center gap-x-4 mt-2 dark:border dark:border-gray-600 dark:p-2 dark:rounded-lg">
                         <img
@@ -54,7 +54,7 @@ const AllServiceCard = ({ service }) => {
 
                     {/* View Detail Button */}
                     <Link to={`/services/${service._id}`}>
-                        <button className="mt-4 bg-gradient-to-r from-purple-700 to-pink-500 hover:from-purple-800 hover:to-pink-600 text-white px-4 py-2 rounded shadow-md transition-colors">
+                        <button className=" bg-gradient-to-r from-purple-700 to-pink-500 hover:from-purple-800 hover:to-pink-600 text-white px-4 py-2 rounded shadow-md transition-colors">
                             View Detail
                         </button>
                     </Link>

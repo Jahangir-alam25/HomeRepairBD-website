@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import useAuth from '../../hooks/useAuth';
 import { useLoaderData, useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
+import { Helmet } from 'react-helmet-async';
 
 // Reusable readonly input field
 const ReadOnlyInput = ({ label, value }) => (
@@ -91,7 +92,10 @@ const BookingForm = () => {
 
   return (
     <div className='bg-amber-50 dark:bg-gray-800 min-h-screen py-10'>
-      <div className="max-w-7xl mx-auto  px-4 flex flex-col lg:flex-row gap-10">
+      <Helmet>
+        <title>Booking Form - HomeRepairBD</title>
+      </Helmet>
+      <div className="w-11/12 mx-auto  px-4 flex flex-col lg:flex-row gap-10">
       {/* Sidebar */}
       <aside className="hidden lg:block lg:w-1/3 h-fit sticky top-20 bg-base-100 dark:bg-gray-900 border border-base-300 dark:border-gray-700 rounded-lg p-6 shadow-md">
         <h3 className="text-xl font-bold mb-4 text-purple-600 dark:text-purple-400">Booking Summary</h3>
@@ -174,6 +178,7 @@ const BookingForm = () => {
               value={instruction}
               onChange={(e) => setInstruction(e.target.value)}
               aria-multiline="true"
+              required
             />
           </div>
         </fieldset>

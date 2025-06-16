@@ -35,7 +35,7 @@ const AllService = () => {
           setSearchText("");
         }}
       >
-        <div className="flex flex-col sm:flex-row justify-center items-center py-10">
+        <div className="flex  justify-center items-center py-10">
           <input
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}

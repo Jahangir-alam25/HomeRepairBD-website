@@ -39,10 +39,10 @@ const fadeUp = {
 
 const WhyChoose = () => {
     return (
-        <div className="mt-12 bg-white dark:bg-gray-900 transition-colors duration-300">
+        <div className="mt-12 bg-amber-50 w-11/12 mx-auto dark:bg-gray-900 transition-colors duration-300">
             <section className="py-12 text-center px-4">
                 <div className="divider mb-12">
-                    <h2 className="sm:text-4xl text-2xl font-bold text-gray-900 dark:text-white">
+                    <h2 className="sm:text-4xl text-xl font-bold text-gray-900 dark:text-white">
                         Why Choose HomeRepair
                         <motion.span
                             animate={{
@@ -57,7 +57,7 @@ const WhyChoose = () => {
                         >
                             BD
                         </motion.span>
-                        ?
+                        
                     </h2>
                 </div>
 
@@ -105,8 +105,8 @@ const WhyChoose = () => {
                 </div>
             </section>
 
-            <section className="pb-12 px-4 md:px-10">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            <section className="pb-12 ">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 ">
                     {features.map((item, index) => (
                         <motion.div
                             key={index}

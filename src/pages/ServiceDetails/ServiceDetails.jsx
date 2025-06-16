@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import {
   FaCheckCircle,
   FaClock,
@@ -45,8 +46,12 @@ const ServiceDetails = () => {
 
   return (
     <div className='dark:bg-gray-800 py-6 dark:text-white bg-amber-50'>
+      <Helmet>
+        <title>Service Details - HomeRepairBD</title>
+      
+      </Helmet>
       {/* Main Service Details */}
-      <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-8 py-6 rounded-md  px-4 dark:bg-gray-900 text-gray-900 dark:text-white">
+      <div className="w-11/12 mx-auto flex flex-col lg:flex-row gap-8 py-6 rounded-md  px-4 dark:bg-gray-900 text-gray-900 dark:text-white">
         {/* Left Section */}
         <div className="flex-1">
           <div className="overflow-hidden rounded-md">
@@ -114,7 +119,7 @@ const ServiceDetails = () => {
       </div>
 
       {/* Feature Cards Section */}
-      <div className="max-w-6xl mx-auto px-4 pb-12">
+      <div className="w-11/12 mx-auto px-4 pb-12">
         <h3 className="text-2xl font-bold text-center text-purple-700 dark:text-purple-400 my-6">
           Service Highlights
         </h3>
