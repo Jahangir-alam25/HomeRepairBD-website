@@ -63,7 +63,7 @@ const Navbar = () => {
 
                         {isDropdownOpen && (
 
-                            <ul className="absolute right-20 top-14 dropdown-content menu bg-base-100 rounded-box z-50 w-52 p-2 shadow-sm dark:bg-gray-800 dark:text-white">
+                            <ul className="absolute right-20 top-14 dropdown-content menu bg-base-100 rounded-box z-50 w-52 p-2 shadow-sm dark:bg-gray-600 dark:text-white">
                                 <li onClick={() => setIsDropdownOpen(false)}>
                                     <NavLink
                                         to="/addService"
@@ -178,7 +178,7 @@ const Navbar = () => {
 
             {/* Mobile Menu */}
             {menuOpen && (
-                <div className='absolute right-0 dropdown-content menu bg-base-100 rounded-box z-50 w-60 p-2 shadow-sm dark:bg-gray-800 dark:text-white'>
+                <div className='absolute right-0 dropdown-content menu bg-base-100 rounded-box z-50 w-60 p-2 shadow-sm dark:bg-gray-700 dark:text-white'>
                     <div className="lg:hidden mt-4 space-y-2">
                         <div className="flex gap-3 justify-between">
                             <div>

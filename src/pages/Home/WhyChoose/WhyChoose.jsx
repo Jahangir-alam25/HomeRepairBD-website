@@ -39,7 +39,7 @@ const fadeUp = {
 
 const WhyChoose = () => {
     return (
-        <div className="mt-12 bg-amber-50 w-11/12 mx-auto dark:bg-gray-900 transition-colors duration-300">
+        <div className="mt-12 bg-amber-50 w-11/12 mx-auto dark:bg-gray-800 transition-colors duration-300">
             <section className="py-12 text-center px-4">
                 <div className="divider mb-12">
                     <h2 className="sm:text-4xl text-xl font-bold text-gray-900 dark:text-white">
@@ -110,7 +110,7 @@ const WhyChoose = () => {
                     {features.map((item, index) => (
                         <motion.div
                             key={index}
-                            className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow hover:shadow-md transition flex items-start space-x-4"
+                            className="bg-white dark:bg-gray-900 p-6 rounded-xl shadow hover:shadow-md transition flex items-start space-x-4"
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true }}

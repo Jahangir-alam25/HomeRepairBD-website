@@ -44,7 +44,7 @@ const services = [
 
 const FeaturedSection = () => {
   return (
-    <div className="bg-amber-50 w-11/12 mx-auto dark:bg-gray-900 transition-colors duration-300">
+    <div className="bg-amber-50 w-11/12 mx-auto dark:bg-gray-800 transition-colors duration-300">
       <section className="py-16 ">
         <div className="text-center mb-12 max-w-3xl mx-auto">
           <div className="divider mb-3">
@@ -102,7 +102,7 @@ const FeaturedSection = () => {
             {services.map((service, index) => (
               <motion.div
                 key={index}
-                className="flex items-start gap-4 bg-white dark:bg-gray-800 p-4 rounded-lg shadow hover:shadow-md transition"
+                className="flex items-start gap-4 bg-white dark:bg-gray-900 p-4 rounded-lg shadow hover:shadow-md transition"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.2, duration: 0.5 }}
