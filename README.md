@@ -1,8 +1,6 @@
 # HomeRepairBD 🔧🏠  
 **Live Site URL:** [https://home-repair-bd.netlify.app/](https://home-repair-bd.netlify.app/)
 
-## Assignment Category:  
-**assignment_category_02**
 
 ---
 
@@ -11,6 +9,9 @@
 HomeRepairBD is a professional home service solution platform in Bangladesh. Whether it's plumbing, electrical, painting, or appliance repair – we bring trusted experts to your doorstep.
 
 ---
+
+<!-- Project Photo -->
+<img src="https://i.ibb.co/DHPPCNdn/home-repair.png" alt="Cover" width="100%" />
 
 ## 🌟 Key Features
 
@@ -49,7 +50,19 @@ HomeRepairBD is a professional home service solution platform in Bangladesh. Whe
 
 ---
 
-💡 Designed to make home services simpler, smarter, and more reliable — one home at a time.
+##### 📦 Installation & Setup
+
+ **Clone the Repository:**
+
+   ```bash
+   git clone https://github.com/your-username/better-work.git
+   ```
+ **Run the Command:**
+
+   ```bash
+   npm install
+
+   ```
 
 ---
 
