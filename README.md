@@ -50,12 +50,12 @@ HomeRepairBD is a professional home service solution platform in Bangladesh. Whe
 
 ---
 
-##### 📦 Installation & Setup
+###  **Installation & Setup**
 
  **Clone the Repository:**
 
    ```bash
-   git clone https://github.com/your-username/better-work.git
+   git clone https://github.com/Jahangir-alam25/HomeRepairBD-website.git
    ```
  **Run the Command:**
 
