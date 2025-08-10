@@ -17,6 +17,8 @@ import ServiceToDo from "../pages/ServiceToDo/ServiceToDo";
 import ViewBooking from "../pages/ServiceToDo/ViewBooking";
 import Loading from "../pages/Loading/Loading";
 import AboutUs from "../pages/AboutUS/AboutUs";
+import DashboardLayout from "../layouts/DashboardLayout";
+import DashboardHome from "../pages/DashboardHome/DashboardHome";
 
 export const router = createBrowserRouter([
     {
@@ -65,7 +67,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/serviceToDo',
-               
+
                 element: <PrivateRoute><ServiceToDo></ServiceToDo></PrivateRoute>
             },
             {
@@ -80,6 +82,18 @@ export const router = createBrowserRouter([
             }
 
 
+        ]
+    },
+    {
+        path: '/dashboard',
+        element: <PrivateRoute><DashboardLayout /></PrivateRoute>,
+        children: [
+            {
+                index: true,
+                element: <DashboardHome />
+            },
+       
+         
         ]
     },
     {

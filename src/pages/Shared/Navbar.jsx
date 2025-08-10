@@ -45,60 +45,15 @@ const Navbar = () => {
                     Services
                 </NavLink>
             </li>
+            <li>
+                <NavLink
+                    to="/dashboard"
+                >
+                    Dashboard
+                </NavLink>
+            </li>
 
-            {user && (
-                <li>
-
-                    <div className="relative">
-                        <div
-                            tabIndex={0}
-                            role="button"
-                            className="m-1"
-                            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                        >
-                            <div tabIndex={0} role="button" className="m-1 flex items-center cursor-pointer">
-                                Dashboard <RiArrowDropDownLine size={24} />
-                            </div>
-                        </div>
-
-                        {isDropdownOpen && (
-
-                            <ul className="absolute right-20 top-14 dropdown-content menu bg-base-100 rounded-box z-50 w-52 p-2 shadow-sm dark:bg-gray-600 dark:text-white">
-                                <li onClick={() => setIsDropdownOpen(false)}>
-                                    <NavLink
-                                        to="/addService"
-                                    >
-                                        Add Service
-                                    </NavLink>
-                                </li>
-                                <li onClick={() => setIsDropdownOpen(false)}>
-                                    <NavLink
-                                        to="/myPostedServices"
-                                    >
-                                        Manage Service
-                                    </NavLink>
-                                </li>
-                                <li onClick={() => setIsDropdownOpen(false)}>
-                                    <NavLink
-                                        to="/bookedServices"
-                                    >
-                                        Booked-Services
-                                    </NavLink>
-                                </li>
-                                <li onClick={() => setIsDropdownOpen(false)}>
-                                    <NavLink
-                                        to="/serviceToDo"
-                                    >
-                                        Service-To-Do
-                                    </NavLink>
-                                </li>
-                            </ul>
-
-                        )}
-                    </div>
-
-                </li>
-            )}
+      
 
             <li>
                 <NavLink
@@ -110,7 +65,7 @@ const Navbar = () => {
         </>
     );
     return (
-        <nav className=" border-b  py-3 bg-amber-50 dark:bg-gray-800  dark:text-white">
+        <nav className=" border-b  py-3 bg-purple-400 dark:bg-gray-800  dark:text-white ">
             <div className="w-11/12 mx-auto flex justify-between items-center">
                 {/* Logo */}
                 <div className="flex items-center gap-2 ">
