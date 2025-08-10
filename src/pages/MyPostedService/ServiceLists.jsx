@@ -91,7 +91,7 @@ const ServiceLists = ({ servicesCreatedByPromise }) => {
                                 <div className='flex gap-2'>
                                     <Link
                                         className='btn bg-gradient-to-r from-purple-700 to-pink-500 text-white border-none'
-                                        to={`/updateService/${service._id}`}
+                                        to={`/dashboard/updateService/${service._id}`}
                                     >
                                         <MdOutlineEdit size={24} />
                                     </Link>

@@ -166,7 +166,7 @@ const AddService = () => {
             <div className="mt-20 text-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white py-10 px-6 rounded-xl shadow-lg max-w-5xl mx-auto">
                 <h3 className="text-2xl md:text-3xl font-bold mb-2">Manage All Your Services in One Place</h3>
                 <p className="text-sm mb-4 max-w-xl mx-auto">Track bookings, update listings, and boost your business performance with our dashboard.</p>
-                <a href="/provider-dashboard" className="btn btn-outline border-white text-white hover:bg-white hover:text-purple-600 transition mt-3">
+                <a href="/dashboard" className="btn btn-outline border-white text-white hover:bg-white hover:text-purple-600 transition mt-3">
                     Go to Dashboard
                 </a>
             </div>

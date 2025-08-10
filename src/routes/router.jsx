@@ -29,10 +29,7 @@ export const router = createBrowserRouter([
                 path: '/',
                 Component: Home
             },
-            {
-                path: '/addService',
-                element: <PrivateRoute><AddService></AddService></PrivateRoute>
-            },
+          
             {
                 path: '/services',
                 Component: AllService,
@@ -51,25 +48,8 @@ export const router = createBrowserRouter([
                 loader: ({ params }) => fetch(`https://a11-service-web-application-server.vercel.app/services/${params.id}`),
                 element: <PrivateRoute><BookingForm></BookingForm></PrivateRoute>
             },
-            {
-                path: '/myPostedServices',
-                element: <PrivateRoute><MyPostedService></MyPostedService></PrivateRoute>
-            },
-            {
-                path: "/updateService/:id",
-                hydrateFallbackElement: <Loading></Loading>,
-                loader: ({ params }) => fetch(`https://a11-service-web-application-server.vercel.app/services/${params.id}`),
-                element: <PrivateRoute><UpdatedService></UpdatedService></PrivateRoute>
-            },
-            {
-                path: '/bookedServices',
-                element: <PrivateRoute><BookedServices></BookedServices></PrivateRoute>
-            },
-            {
-                path: '/serviceToDo',
-
-                element: <PrivateRoute><ServiceToDo></ServiceToDo></PrivateRoute>
-            },
+           
+           
             {
                 path: '/bookings/:id',
                 hydrateFallbackElement: <Loading></Loading>,
@@ -91,6 +71,29 @@ export const router = createBrowserRouter([
             {
                 index: true,
                 element: <DashboardHome />
+            },
+              {
+                path: '/dashboard/addService',
+                element: <PrivateRoute><AddService></AddService></PrivateRoute>
+            },
+             {
+                path: '/dashboard/bookedServices',
+                element: <PrivateRoute><BookedServices></BookedServices></PrivateRoute>
+            },
+             {
+                path: '/dashboard/myPostedServices',
+                element: <PrivateRoute><MyPostedService></MyPostedService></PrivateRoute>
+            },
+            {
+                path: "/dashboard/updateService/:id",
+                hydrateFallbackElement: <Loading></Loading>,
+                loader: ({ params }) => fetch(`https://a11-service-web-application-server.vercel.app/services/${params.id}`),
+                element: <PrivateRoute><UpdatedService></UpdatedService></PrivateRoute>
+            },
+            {
+                path: '/dashboard/serviceToDo',
+
+                element: <PrivateRoute><ServiceToDo></ServiceToDo></PrivateRoute>
             },
        
          

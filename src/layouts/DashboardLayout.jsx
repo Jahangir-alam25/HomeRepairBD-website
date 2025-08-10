@@ -50,25 +50,25 @@ const DashboardLayout = () => {
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/addService">
+                        <NavLink to="/dashboard/addService">
                             <FaPlus className="mr-2" />
                             Add Service
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/myPostedServices">
+                        <NavLink to="/dashboard/myPostedServices">
                             <FaTools className="mr-2" />
                             Manage Service
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/bookedServices">
+                        <NavLink to="/dashboard/bookedServices">
                             <FaClipboardList className="mr-2" />
                             Booked Services
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/serviceToDo">
+                        <NavLink to="/dashboard/serviceToDo">
                             <FaTasks className="mr-2" />
                             Service To Do
                         </NavLink>
