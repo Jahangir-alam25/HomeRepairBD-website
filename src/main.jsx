@@ -13,14 +13,16 @@ import { ThemeProvider } from './contexts/AuthContext/ThemeContext.jsx'
 
 
 createRoot(document.getElementById('root')).render(
- <HelmetProvider>
- <ThemeProvider>
-    <AuthProvider>
-       <Suspense fallback={<Loading />}>
-        <RouterProvider router={router} />
-       </Suspense>
-       <ToastContainer></ToastContainer>
-    </AuthProvider>
- </ThemeProvider>
- </HelmetProvider>
+   <div className='font-urbanist'>
+      <HelmetProvider>
+         <ThemeProvider>
+            <AuthProvider>
+               <Suspense fallback={<Loading />}>
+                  <RouterProvider router={router} />
+               </Suspense>
+               <ToastContainer></ToastContainer>
+            </AuthProvider>
+         </ThemeProvider>
+      </HelmetProvider>
+   </div>
 )
