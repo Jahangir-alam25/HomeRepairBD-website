@@ -6,7 +6,9 @@ import Footer from '../pages/Shared/Footer';
 const AuthLayouts = () => {
     return (
         <div>
-            <Navbar></Navbar>
+            <header className="sticky top-0 z-50">
+                <Navbar></Navbar>
+            </header>
             <Outlet></Outlet>
             <Footer></Footer>
         </div>

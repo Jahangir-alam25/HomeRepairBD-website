@@ -53,7 +53,7 @@ const Navbar = () => {
                 </NavLink>
             </li>
 
-      
+
 
             <li>
                 <NavLink
@@ -79,7 +79,7 @@ const Navbar = () => {
                     <Link to='/'>
                         <img src="https://i.ibb.co/GvH5Nmzf/mortgage.png" alt="logo" className="h-12 w-12" />
                     </Link>
-                    <motion.h1
+                    <Link to='/'>   <motion.h1
                         animate={{
                             backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
                         }}
@@ -91,7 +91,7 @@ const Navbar = () => {
                         className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-500 to-purple-600 bg-[length:200%_200%]"
                     >
                         HomeRepairBD
-                    </motion.h1>
+                    </motion.h1></Link>
 
                 </div>
 
