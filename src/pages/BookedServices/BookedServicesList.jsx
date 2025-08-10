@@ -57,7 +57,7 @@ const BookedServicesList = ({ bookingsCreatedByPromise }) => {
   };
 
   return (
-    <div className='bg-amber-50 dark:bg-gray-800 dark:text-white'>
+    <div className='bg-purple-100 dark:bg-gray-800 dark:text-white'>
       <div className="py-4 sm:py-12 w-11/12 mx-auto   min-h-screen">
       {/* Title and Description */}
       <div className="mb-10 text-center">

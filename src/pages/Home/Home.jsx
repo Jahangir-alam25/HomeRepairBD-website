@@ -12,7 +12,7 @@ import FAQ from '../FAQ/FAQ';
 
 const Home = () => {
     return (
-        <div className='bg-amber-50 dark:bg-gray-800 dark:text-white'>
+        <div className='bg-purple-100 dark:bg-gray-800 dark:text-white'>
             <Helmet>
                 <title>Home - HomeRepairBD</title>
                 

@@ -43,7 +43,7 @@ const ServiceLists = ({ servicesCreatedByPromise }) => {
     };
 
     return (
-        <div className=' w-11/12 mx-auto my-10 '>
+        <div className=' w-11/12 mx-auto py-10 '>
             <h1 className="text-4xl font-bold mb-6 text-gray-900 dark:text-white">My Posted Services</h1>
 
             {services.length > 0 ? (
@@ -112,7 +112,7 @@ const ServiceLists = ({ servicesCreatedByPromise }) => {
                         <Lottie loop={true} animationData={noProvidedServices} className="w-48 mx-auto" />
                     </div>
                     <p className="text-xl">You haven’t provided any services yet.</p>
-                    <Link to="/addService" className="btn bg-gradient-to-r from-purple-500 to-indigo-500 mt-4 text-white">Go to create a Service</Link>
+                    <Link to="/dashboard/addService" className="btn bg-gradient-to-r from-purple-500 to-indigo-500 mt-4 text-white">Go to create a Service</Link>
                 </div>
             )}
         </div>

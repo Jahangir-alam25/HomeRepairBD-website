@@ -44,8 +44,8 @@ const services = [
 
 const FeaturedSection = () => {
   return (
-    <div className="bg-amber-50 w-11/12 mx-auto dark:bg-gray-800 transition-colors duration-300">
-      <section className="py-16 ">
+    <div className="bg-purple-100 w-11/12 mx-auto dark:bg-gray-800 transition-colors duration-300">
+      <section className="mb-12 sm:mb-16 ">
         <div className="text-center mb-12 max-w-3xl mx-auto">
           <div className="divider mb-3">
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
@@ -89,7 +89,7 @@ const FeaturedSection = () => {
             <img
               src="https://i.ibb.co/9mGmTNCc/4322372.jpg"
               alt="Home Repair Illustration"
-              className="w-full max-w-md mx-auto rounded-lg shadow-lg transition-transform transform hover:scale-105"
+              className="w-full max-w-md mx-auto rounded-xl shadow-lg transition-transform transform hover:scale-105"
             />
           </motion.div>
         </div>
@@ -102,7 +102,7 @@ const FeaturedSection = () => {
             {services.map((service, index) => (
               <motion.div
                 key={index}
-                className="flex items-start gap-4 bg-white dark:bg-gray-900 p-4 rounded-lg shadow hover:shadow-md transition"
+                className="flex items-start gap-4 bg-white dark:bg-gray-900 p-4 rounded-xl shadow hover:shadow-md transition"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.2, duration: 0.5 }}

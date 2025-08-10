@@ -49,7 +49,7 @@ const AddService = () => {
     };
 
     return (
-        <div className="px-4 py-12 md:px-24 bg-amber-50 dark:bg-gray-800 dark:text-white transition-colors duration-300">
+        <div className="px-4 py-12 md:px-24 bg-purple-100 dark:bg-gray-800 dark:text-white transition-colors duration-300">
             <Helmet>
                 <title>Add Service - HomeRepairBD</title>
             </Helmet>
@@ -105,7 +105,7 @@ const AddService = () => {
             </div>
 
             {/* Provider Info */}
-            <div className="flex items-center gap-4 bg-base-200  dark:bg-gray-800 border border-base-300 dark:border-gray-700 rounded-lg p-4 max-w-md mx-auto mb-10">
+            <div className="flex items-center gap-4 bg-base-200  dark:bg-gray-800 border border-base-300 dark:border-gray-700 rounded-xl p-4 max-w-md mx-auto mb-10">
                 <img src={user?.photoURL} alt="Provider" className="w-12 h-12 rounded-full object-cover border" />
                 <div>
                     <h4 className="font-semibold text-purple-600 dark:text-purple-400">{user?.displayName}</h4>

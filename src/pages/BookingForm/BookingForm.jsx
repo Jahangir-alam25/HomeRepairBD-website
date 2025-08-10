@@ -74,7 +74,7 @@ const BookingForm = () => {
       if (data.insertedId) {
         toast.success('Service booked successfully!');
         e.target.reset();
-        navigate('/bookedServices');
+        navigate('/dashboard/bookedServices');
       } else {
         throw new Error('Booking failed');
       }
@@ -91,7 +91,7 @@ const BookingForm = () => {
   }
 
   return (
-    <div className='bg-amber-50 dark:bg-gray-800 min-h-screen py-10'>
+    <div className='bg-purple-100 dark:bg-gray-800 min-h-screen py-10'>
       <Helmet>
         <title>Booking Form - HomeRepairBD</title>
       </Helmet>

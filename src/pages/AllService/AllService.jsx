@@ -24,7 +24,7 @@ const AllService = () => {
   };
 
   return (
-    <div className=' bg-amber-50 dark:bg-gray-800 px-5 pb-12'>
+    <div className=' bg-purple-100 dark:bg-gray-800 px-5 pb-12'>
       <Helmet>
         <title>All Services - HomeRepairBD</title>
       </Helmet>

@@ -14,7 +14,7 @@ const MyPostedService = () => {
     const {user} = useAuth();
    
     return (
-        <div className='p-4 mx-auto bg-amber-50 dark:bg-gray-800 dark:text-white'>
+        <div className='p-4  min-h-screen bg-purple-100 dark:bg-gray-800 dark:text-white'>
             <Helmet>
                 <title>MyServices - HomeRepairBD</title>
                 

@@ -13,7 +13,7 @@ const clients = [
 
 const PremiumClients = () => {
   return (
-    <section className="dark:bg-gray-800 py-12 w-11/12 mx-auto">
+    <section className="dark:bg-gray-800 pb-12 sm:pb-16 w-11/12 mx-auto">
       <div className="text-center mb-10">
         <h2 className="text-3xl md:text-4xl font-bold dark:text-white">
           OUR PREMIUM CLIENTS
@@ -32,7 +32,7 @@ const PremiumClients = () => {
         transition={{ duration: 0.8 }}
       >
         {clients.map((client, idx) => (
-          <div key={idx} className="dark:bg-gray-900 bg-white p-4 rounded-lg shadow hover:shadow-lg transition">
+          <div key={idx} className="dark:bg-gray-900 bg-white p-4 rounded-xl shadow hover:shadow-lg transition">
             <img
               src={client.logo}
               alt={client.name}

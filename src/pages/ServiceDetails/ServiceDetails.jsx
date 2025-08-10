@@ -45,7 +45,7 @@ const ServiceDetails = () => {
   ];
 
   return (
-    <div className='dark:bg-gray-800 py-6 dark:text-white bg-amber-50'>
+    <div className='dark:bg-gray-800 py-6 dark:text-white bg-purple-100'>
       <Helmet>
         <title>Service Details - HomeRepairBD</title>
       

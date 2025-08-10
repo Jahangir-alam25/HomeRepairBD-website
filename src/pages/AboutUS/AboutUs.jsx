@@ -6,7 +6,7 @@ const AboutUs = () => {
   const yearsOfService = new Date().getFullYear() - 2018;
 
   return (
-    <div className='dark:bg-gray-800 bg-amber-50 '>
+    <div className='dark:bg-gray-800 bg-purple-100'>
       <div className="max-w-6xl mx-auto px-4 py-12 ">
       <h2 className="text-4xl font-bold text-center text-purple-600 dark:text-purple-400 mb-6">
         About HomeRepairBD

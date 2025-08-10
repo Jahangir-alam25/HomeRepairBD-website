@@ -39,7 +39,7 @@ const UpdatedService = () => {
     };
 
     return (
-        <div className="px-4 py-12 md:px-24 bg-amber-50 dark:bg-gray-800 dark:text-white min-h-screen">
+        <div className="px-4 py-12 md:px-24 bg-purple-100 dark:bg-gray-800 dark:text-white min-h-screen">
             <Helmet><title>Update Service - HomeRepairBD</title></Helmet>
             <div className="text-center space-y-4 mb-10">
                 <h1 className="text-4xl text-purple-600 md:text-6xl font-bold">Update Service</h1>

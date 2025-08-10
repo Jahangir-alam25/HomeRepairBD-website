@@ -14,7 +14,7 @@ const ServiceToDo = () => {
     
     
     return (
-       <div className='bg-amber-50 dark:bg-gray-800 dark:text-white p-4 mx-auto'>
+       <div className='bg-purple-100 dark:bg-gray-800 dark:text-white p-4 mx-auto'>
         <Helmet><title>ServicesActivity - HomeRepairBD</title></Helmet>
                  <Suspense fallback={<Loading></Loading>}>
                       <BookingList

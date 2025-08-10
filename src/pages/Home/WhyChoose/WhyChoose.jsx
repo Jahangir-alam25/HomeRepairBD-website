@@ -39,8 +39,8 @@ const fadeUp = {
 
 const WhyChoose = () => {
     return (
-        <div className="mt-12 bg-amber-50 w-11/12 mx-auto dark:bg-gray-800 transition-colors duration-300">
-            <section className="py-12 text-center px-4">
+        <div className=" bg-purple-100 w-11/12 mx-auto dark:bg-gray-800 transition-colors duration-300 sm:mb-16 mb-12">
+            <section className="text-center pb-12">
                 <div className="divider mb-12">
                     <h2 className="sm:text-4xl text-xl font-bold text-gray-900 dark:text-white">
                         Why Choose HomeRepair
@@ -105,7 +105,7 @@ const WhyChoose = () => {
                 </div>
             </section>
 
-            <section className="pb-12 ">
+            <section className="">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 ">
                     {features.map((item, index) => (
                         <motion.div

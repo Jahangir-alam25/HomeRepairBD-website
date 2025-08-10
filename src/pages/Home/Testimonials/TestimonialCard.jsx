@@ -33,7 +33,7 @@ const TestimonialCard = ({ item }) => {
                     </div>
                 </div>
 
-                <div className="pt-14 rounded-md bg-white dark:bg-gray-800 transition-colors duration-300  h-78">
+                <div className="pt-14 rounded-xl bg-white dark:bg-gray-800 transition-colors duration-300  h-78">
                     {/* Name and Location */}
                     <h2 className="text-lg font-semibold text-gray-900 dark:text-white">{name}</h2>
                     <p className="text-gray-600 dark:text-gray-400 mb-2">{location}</p>

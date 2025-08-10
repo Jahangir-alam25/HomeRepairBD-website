@@ -31,7 +31,7 @@ const testimonials = [
 
 const Testimonials = () => {
      return (
-    <div className='mt-20 pb-20 w-11/12 mx-auto'>
+    <div className='mb-16 sm:mb-16 w-11/12 mx-auto'>
         <div className='divider mb-12 '>
           <h1 className='sm:text-4xl text-xl font-bold text-center'>What Our <span className=" font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-500 to-purple-600 bg-[length:200%_200%]">Clients</span>  Have To Say</h1></div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 ">
