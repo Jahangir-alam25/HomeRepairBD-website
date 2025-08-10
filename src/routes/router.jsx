@@ -19,6 +19,7 @@ import Loading from "../pages/Loading/Loading";
 import AboutUs from "../pages/AboutUS/AboutUs";
 import DashboardLayout from "../layouts/DashboardLayout";
 import DashboardHome from "../pages/DashboardHome/DashboardHome";
+import ContactUs from "../pages/ContactUs/ContactUs";
 
 export const router = createBrowserRouter([
     {
@@ -59,6 +60,10 @@ export const router = createBrowserRouter([
             {
                 path: '/about',
                 element: <AboutUs />
+            },
+            {
+                path: '/contact',
+                element: <ContactUs />
             }
 
 

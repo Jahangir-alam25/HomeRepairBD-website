@@ -62,6 +62,13 @@ const Navbar = () => {
                     About Us
                 </NavLink>
             </li>
+            <li>
+                <NavLink
+                    to="/contact"
+                >
+                    Contact Us
+                </NavLink>
+            </li>
         </>
     );
     return (
