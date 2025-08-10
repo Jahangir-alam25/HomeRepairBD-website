@@ -6,6 +6,7 @@ import WhyChoose from './WhyChoose/WhyChoose';
 import FeaturedSection from './FeaturedSection';
 import { Helmet } from 'react-helmet-async';
 import PremiumClients from './PremiumClients';
+import FAQ from '../FAQ/FAQ';
 
 
 
@@ -20,7 +21,7 @@ const Home = () => {
             <PopularServices></PopularServices>
             <FeaturedSection />
             <WhyChoose></WhyChoose>
-             
+            <FAQ></FAQ>
             <Testimonials></Testimonials>
             <PremiumClients></PremiumClients>
         </div>

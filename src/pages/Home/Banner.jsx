@@ -46,7 +46,7 @@ const transition = {
   const currentPackage = packages[current];
 
   return (
-    <section className="relative py-24 px-6 text-white overflow-hidden bg-black">
+    <section className="relative py-24 text-white overflow-hidden bg-black">
       {/* Background Image Layer */}
       <div
         className="absolute inset-0 bg-cover bg-center z-0 blur-sm brightness-75"
@@ -60,7 +60,7 @@ const transition = {
       <div className="absolute inset-0 bg-opacity-60 z-0" />
 
       {/* Content */}
-      <div className="relative z-10  mx-auto flex flex-col lg:flex-row items-center justify-center gap-5 lg:gap-10 px-0 sm:px-16">
+      <div className="relative z-10  mx-auto flex flex-col lg:flex-row items-center justify-center gap-5 lg:gap-10 w-11/12 ">
         <AnimatePresence mode="wait">
           <motion.div
             key={`text-${current}`}
@@ -103,7 +103,7 @@ const transition = {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 60 }}
             transition={transition}
-            className="flex-1 max-w-sm sm:max-w-md rounded-xl shadow-xl"
+            className="flex-1 max-w-sm sm:max-w-md h-[200px] sm:h-[300px] rounded-xl shadow-xl"
           />
         </AnimatePresence>
       </div>
